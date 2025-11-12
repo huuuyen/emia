@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind customer;
+@layer base {
+  @import "base";
+}
+
+@layer components {
+  @import "components";
+  @import "navigation";
+  @import "buttons";
+}
+
+@layer utilities {
+  @import "utilities";
+}
+
+@layer swiper {
+  @import '../node_modules/swiper/swiper.scss';
+  @import 'swiper/scss/pagination';
+  @import './swiper.scss';
+}
+@layer customer {
+  @import "customer";
+}
