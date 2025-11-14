@@ -1,3 +1,106 @@
+/* SF UI Text Font Definition */
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Italic variants */
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-RegularItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-SemiboldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF UI Text';
+  src: url('/fonts/SFUIText-HeavyItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Apply SF UI Text font globally */
+* {
+  font-family: 'SF UI Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 .banner-title{
   color: #1744F4;
   font-weight: 100;
@@ -9,4 +112,156 @@
 }
 .banner-title.bold{
    font-weight: bold;
+}
+.how-title{
+  color: #1744F4;
+   font-weight: 600;
+}
+.recipe {
+  .recipe-emia-core {
+    display: flex;
+    flex-wrap: wrap; /* ✅ Cho phép xuống dòng khi thiếu chỗ */
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #1744F4;
+    font-size: 24px;
+    background-color: #F6F8F9;
+    min-height: 100px;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* giúp chữ xuống dòng đẹp hơn */
+  }
+
+  .item-core-recipe {
+    display: inline-block;
+    background-color: #1744F4;
+    color: white;
+    font-size: 20px;
+    padding: 2px 8px;
+    margin: 4px; /* thêm khoảng cách giữa các span khi xuống dòng */
+    border-radius: 6px; /* tuỳ chọn */
+  }
+}
+
+  .button-sucess>a {
+    background-color: #00CC4E;
+    border-radius: 37px;
+    color: #FFFFFF !important;
+    font-weight: 700;
+  }
+.align-items-center {
+  align-items: center;
+}
+
+.c-courses-section {
+  font-weight: 400;
+
+  .c-courses-title span {
+    color: #000000;
+    font-size: 48px;
+    line-height: 120%;
+  }
+
+  .c-courses-description>p {
+    color: #404C5D;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+  }
+
+  .c-courses-button-download>a {
+    background-color: #00CC4E;
+    border-radius: 37px;
+    color: #FFFFFF !important;
+    font-weight: 700;
+  }
+
+  .c-courses-button-contact>a {
+    color: #1744F4 !important;
+  }
+
+  .c-course-title {
+    color: #1744F4 !important;
+    font-size: 32px;
+    line-height: 140%;
+  }
+
+  .c-course-subtitle {
+    color: #1744F4 !important;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .c-course-details {
+    margin-top: 10px;
+  }
+
+  .c-course-duration-label {
+    color: #808C92;
+    font-size: 14px;
+    text-transform: uppercase
+  }
+
+  .c-course-item-loop {
+    border: 1px solid #000000 !important;
+    padding: 0 3px;
+    display: inline-block;
+    font-size: 10px;
+    text-transform: uppercase
+  }
+}
+
+// .partnership-border {
+//   border: 4px solid transparent !important; /* để thấy rõ gradient */
+//   border-radius: 48px !important;
+//   border-image: linear-gradient(138.14deg, #1744F4 18.18%, #00CC4E 76.37%) 1 !important;
+// }
+.partnership-border {
+  display: inline-block;
+  /* hoặc block tùy cần */
+  padding: 4px;
+  /* độ dày "viền" */
+  border-radius: 48px;
+  background: linear-gradient(138.14deg, #1744F4 18.18%, #00CC4E 76.37%);
+}
+
+.partnership-inner {
+  border-radius: 44px;
+  /* nhỏ hơn padding để lộ viền */
+  background: white;
+  /* hoặc màu nền của bạn */
+  /* padding nội dung */
+}
+
+.customer-form {
+  width: 48% !important;
+}
+
+.form-input {
+  height: 40px !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid var(--Border-Neutral-tertiary, #B2B2B2) !important;
+}
+
+.form-textarea {
+  background-color: #FFFFFF !important;
+  border: 1px solid var(--Border-Neutral-tertiary, #B2B2B2) !important;
+}
+
+select {
+  height: 40px !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid var(--Border-Neutral-tertiary, #B2B2B2) !important;
+  width: 100% !important;
+}
+
+.bg_footer{
+  background-image: url("/images/bg_footer.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #FFFFFF !important;
+
+}
+.button-back-to-top> a{
+  border: 2px solid #FFFFFF !important;
+  border-radius: 24px !important;
 }

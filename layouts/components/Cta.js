@@ -17,12 +17,12 @@ function Cta() {
             {markdownify(content, "p", "mt-10")}
           </div> */}
           <Image
-  src="/images/Group17.svg"
-  width={0}
-  height={0}
-  sizes="100vw"
-  style={{ width: '100%', height: 'auto' }} // optional
-/>
+            src="/images/Group17.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "100%", height: "auto" }} // optional
+          />
           {/* <Image src="/images/Group17.svg" alt={title} priority={true}  /> */}
           {/* <ImageFallback
               src="/images/Group17.svg"

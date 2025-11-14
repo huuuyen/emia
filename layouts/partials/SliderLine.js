@@ -1,0 +1,150 @@
+"use client";
+
+import Circle from "@layouts/components/Circle";
+import ImageFallback from "@layouts/components/ImageFallback";
+import { gsap } from "@lib/gsap";
+import { markdownify } from "@lib/utils/textConverter";
+import Link from "next/link";
+import { useEffect } from "react";
+import { Autoplay, FreeMode } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
+  useEffect(() => {
+    console.log("brands_line1:", brands_line1);
+    const ctx2 = gsap.context(() => {});
+    return () => ctx2.revert();
+  }, []);
+
+  return (
+    <section className="section banner pt-0">
+      <div className="container-xl">
+        <div className="relative">
+          <div className="row ">
+            <div className="animate from-right col-12">
+              <Swiper
+                loop={true}
+                slidesPerView={3}
+                breakpoints={{
+                  992: {
+                    slidesPerView: 5,
+                  },
+                }}
+                spaceBetween={0}
+                modules={[Autoplay, FreeMode]}
+                freeMode={true}
+                speed={3000}
+                autoplay={{
+                  delay: 0,
+                  disableOnInteraction: false,
+                }}
+              >
+                {brands_line1.map((brand, index) => (
+                  <SwiperSlide
+                    style={{width:"273px", height:"194px"}}
+                    className="p-0 h-20 cursor-pointer transition lg:px-1"
+                    key={"brand-" + index}
+                  >
+                    <div className="relative h-full">
+                      <ImageFallback
+                        className="object-contain"
+                        src={brand}
+                        width={273}
+                        height={194}
+                        sizes="100vw"
+                        alt=""
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+
+            {/* line 2 - chạy ngược */}
+            <div className="animate from-right col-12">
+              <Swiper
+                loop={true}
+                slidesPerView={3}
+                breakpoints={{
+                  992: {
+                    slidesPerView: 5,
+                  },
+                }}
+                spaceBetween={0}
+                modules={[Autoplay, FreeMode]}
+                freeMode={true}
+                speed={3000}
+                autoplay={{
+                  delay: 0,
+                  disableOnInteraction: false,
+                  reverseDirection: true,
+                }}
+              >
+                {brands_line2.map((brand, index) => (
+                  <SwiperSlide
+                    style={{width:"273px", height:"194px"}}
+                    className="p-0 h-20 cursor-pointer transition lg:px-1"
+                    key={"brand-" + index}
+                  >
+                    <div className="relative h-full">
+                      <ImageFallback
+                        className="object-contain"
+                        src={brand}
+                        width={273}
+                        height={194}
+                        sizes="100vw"
+                        alt=""
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+
+            {/* line 3 */}
+            <div className="animate from-right col-12">
+              <Swiper
+                loop={true}
+                slidesPerView={3}
+                breakpoints={{
+                  992: {
+                    slidesPerView: 5,
+                  },
+                }}
+                spaceBetween={0}
+                modules={[Autoplay, FreeMode]}
+                freeMode={true}
+                speed={3000}
+                autoplay={{
+                  delay: 0,
+                  disableOnInteraction: false,
+                }}
+              >
+                {brands_line3.map((brand, index) => (
+                  <SwiperSlide
+                    style={{width:"273px", height:"194px"}}
+                    className="p-0 h-20 cursor-pointer transition lg:px-1"
+                    key={"brand-" + index}
+                  >
+                    <div className="relative h-full">
+                      <ImageFallback
+                        className="object-contain"
+                        src={brand}
+                        width={273}
+                        height={194}
+                        sizes="100vw"
+                        alt=""
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HomeBanner;

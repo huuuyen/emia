@@ -5,30 +5,53 @@ import HomeBanner from "@layouts/partials/HomeBanner";
 import SeoMeta from "@layouts/partials/SeoMeta";
 import ShortIntro from "@layouts/partials/ShortIntro";
 import SpecialFeatures from "@layouts/partials/SpecialFeatures";
+import How from "@layouts/partials/How";
+import SliderLine from "@layouts/partials/SliderLine";
+
 import Testimonial from "@layouts/partials/Testimonial";
 import { getListPage } from "@lib/contentParser";
 import config from "@config/config.json";
+
+import Courses from "@layouts/partials/Courses";
+
+import Partnership from "@layouts/partials/Partnership";
+import Contact from "@layouts/partials/Contact";
 
 const Home = async () => {
   const homepage = await getListPage("content/_index.md");
   const { vector_bg } = config.site;
   const { frontmatter } = homepage;
-  const { banner, brands, features, intro, speciality, testimonial } =
-    frontmatter;
+  const {
+    banner,
+    brands,
+    how,
+    brands_line1,
+    brands_line2,
+    brands_line3,
+    courses,
+    partnership,
+  } = frontmatter;
   return (
     <GSAPWrapper>
       <div
         className="test_demo container"
-        style={{ backgroundImage: `url(${vector_bg})`, backgroundRepeat: 'no-repeat' }}
+        style={{
+          backgroundImage: `url(${vector_bg})`,
+          backgroundRepeat: "no-repeat",
+        }}
       >
         <SeoMeta title="Home" />
         <HomeBanner banner={banner} brands={brands} />
         <Cta />
-        <Features features={features} />
-        <ShortIntro intro={intro} />
-        <SpecialFeatures speciality={speciality} />
-        <Testimonial testimonial={testimonial} />
-        
+        <How how={how} />
+        <SliderLine
+          brands_line1={brands_line1}
+          brands_line2={brands_line2}
+          brands_line3={brands_line3}
+        />
+        <Courses courses={courses} />
+        <Partnership partnership={partnership} />
+        <Contact />
       </div>
     </GSAPWrapper>
   );
