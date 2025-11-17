@@ -154,60 +154,60 @@
 
 .c-courses-section {
   font-weight: 400;
+ 
+}
+.c-courses-title span {
+  color: #000000;
+  font-size: 48px;
+  line-height: 120%;
+}
 
-  .c-courses-title span {
-    color: #000000;
-    font-size: 48px;
-    line-height: 120%;
-  }
+.c-courses-description>p {
+  color: #404C5D;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+}
 
-  .c-courses-description>p {
-    color: #404C5D;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 140%;
-  }
+.c-courses-button-download>a {
+  background-color: #00CC4E;
+  border-radius: 37px;
+  color: #FFFFFF !important;
+  font-weight: 700;
+}
 
-  .c-courses-button-download>a {
-    background-color: #00CC4E;
-    border-radius: 37px;
-    color: #FFFFFF !important;
-    font-weight: 700;
-  }
+.c-courses-button-contact>a {
+  color: #1744F4 !important;
+}
 
-  .c-courses-button-contact>a {
-    color: #1744F4 !important;
-  }
+.c-course-title {
+  color: #1744F4 !important;
+  font-size: 32px;
+  line-height: 140%;
+}
 
-  .c-course-title {
-    color: #1744F4 !important;
-    font-size: 32px;
-    line-height: 140%;
-  }
+.c-course-subtitle {
+  color: #1744F4 !important;
+  font-size: 16px;
+  line-height: 20px;
+}
 
-  .c-course-subtitle {
-    color: #1744F4 !important;
-    font-size: 16px;
-    line-height: 20px;
-  }
+.c-course-details {
+  margin-top: 10px;
+}
 
-  .c-course-details {
-    margin-top: 10px;
-  }
+.c-course-duration-label {
+  color: #808C92;
+  font-size: 14px;
+  text-transform: uppercase
+}
 
-  .c-course-duration-label {
-    color: #808C92;
-    font-size: 14px;
-    text-transform: uppercase
-  }
-
-  .c-course-item-loop {
-    border: 1px solid #000000 !important;
-    padding: 0 3px;
-    display: inline-block;
-    font-size: 10px;
-    text-transform: uppercase
-  }
+.c-course-item-loop {
+  border: 1px solid #000000 !important;
+  padding: 0 3px;
+  display: inline-block;
+  font-size: 10px;
+  text-transform: uppercase
 }
 
 // .partnership-border {
@@ -254,14 +254,508 @@ select {
   width: 100% !important;
 }
 
-.bg_footer{
+.bg_footer {
   background-image: url("/images/bg_footer.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  background-color: #1a1a1a;
   color: #FFFFFF !important;
+  // padding-top: 60px;
+  padding-bottom: 40px;
+  
+  @media (max-width: 768px) {
+    padding-top: 40px;
+    padding-bottom: 30px;
+    background-size: cover;
+    background-position: center top;
+  }
 
+  p {
+    color: #FFFFFF !important;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    
+    @media (max-width: 768px) {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+  }
+
+  .section {
+    padding: 0;
+  }
+
+  .container {
+    @media (max-width: 768px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  [class*="border-white"] {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  img.banner-img {
+    @media (max-width: 768px) {
+      max-width: 150px;
+      height: auto;
+    }
+  }
+
+  .row {
+    @media (max-width: 768px) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
 }
-.button-back-to-top> a{
+
+.button-back-to-top > a {
   border: 2px solid #FFFFFF !important;
   border-radius: 24px !important;
+  color: #FFFFFF !important;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE CSS FOR PAGE.JS
+   ============================================ */
+
+/* Container responsive */
+.test_demo.container {
+  @media (max-width: 768px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* ============================================
+   BANNER SECTION (HomeBanner)
+   ============================================ */
+.banner-title {
+  @media (max-width: 768px) {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 48px !important;
+    line-height: 1.1 !important;
+  }
+}
+
+.banner-content {
+  @media (max-width: 768px) {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+.banner-img {
+  @media (max-width: 768px) {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+.banner-btn {
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.cta.section {
+  @media (max-width: 768px) {
+    min-height: 300px !important;
+  }
+}
+
+/* ============================================
+   HOW SECTION
+   ============================================ */
+.how-title {
+  @media (max-width: 768px) {
+    font-size: 24px !important;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 28px !important;
+  }
+}
+
+/* How section columns - responsive padding */
+.section .row .animate {
+  @media (max-width: 768px) {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin-bottom: 30px;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+}
+
+/* Recipe section responsive */
+.recipe {
+  .recipe-emia-core {
+    @media (max-width: 768px) {
+      font-size: 16px !important;
+      padding: 20px 15px !important;
+      min-height: 80px !important;
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 20px !important;
+      padding: 20px 30px !important;
+    }
+  }
+
+  .item-core-recipe {
+    @media (max-width: 768px) {
+      font-size: 14px !important;
+      padding: 2px 6px !important;
+      margin: 3px !important;
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 18px !important;
+    }
+  }
+}
+
+/* ============================================
+   SLIDER LINE SECTION
+   ============================================ */
+.section.banner .animate.from-right {
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
+}
+
+.section.banner .swiper-slide {
+  @media (max-width: 768px) {
+    height: 194px !important;
+    width: 273px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important;
+  }
+  
+  > div {
+    @media (max-width: 768px) {
+      width: 100% !important;
+      height: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+  }
+  
+  img,
+  [class*="ImageFallback"] {
+    @media (max-width: 768px) {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      object-position: center !important;
+    }
+  }
+}
+
+/* ============================================
+   COURSES SECTION
+   ============================================ */
+.c-courses-section {
+  @media (max-width: 768px) {
+    padding: 30px 15px !important;
+  }
+
+  .c-courses-title span {
+    @media (max-width: 768px) {
+      font-size: 32px !important;
+      line-height: 120% !important;
+      display: block;
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 40px !important;
+    }
+  }
+
+  .c-courses-description > p {
+    @media (max-width: 768px) {
+      font-size: 16px !important;
+      line-height: 140% !important;
+      margin-bottom: 20px;
+    }
+  }
+
+  .c-courses-buttons {
+    @media (max-width: 768px) {
+      flex-direction: column !important;
+      gap: 15px !important;
+      
+      .col-auto {
+        width: 100% !important;
+        
+        a {
+          display: block;
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .c-course-title {
+    @media (max-width: 768px) {
+      font-size: 24px !important;
+      line-height: 130% !important;
+      margin-top: 20px;
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 28px !important;
+    }
+  }
+
+  .c-course-subtitle {
+    @media (max-width: 768px) {
+      font-size: 14px !important;
+      line-height: 18px !important;
+    }
+  }
+
+  .c-course-details {
+    @media (max-width: 768px) {
+      flex-direction: column !important;
+      gap: 15px !important;
+      
+      .lg\:col-8,
+      .lg\:col-3 {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    }
+  }
+
+  .c-course-item-loop {
+    @media (max-width: 768px) {
+      font-size: 9px !important;
+      padding: 2px 6px !important;
+    }
+  }
+
+  /* Course item layout - stack on mobile */
+  .c-courses-item {
+    @media (max-width: 768px) {
+      .c-course-image,
+      .c-course-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 20px;
+      }
+      
+      .c-course-image {
+        order: 1;
+      }
+      
+      .c-course-content {
+        order: 2;
+      }
+    }
+  }
+}
+
+/* ============================================
+   PARTNERSHIP SECTION
+   ============================================ */
+.partnership-border {
+  @media (max-width: 768px) {
+    padding: 2px !important;
+    border-radius: 24px !important;
+    margin: 0 15px;
+  }
+}
+
+.partnership-inner {
+  @media (max-width: 768px) {
+    border-radius: 22px !important;
+    padding: 20px 15px !important;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    padding: 30px 20px !important;
+  }
+}
+
+.partnership-inner .c-courses-header {
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+    
+    .lg\:col-5 {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.partnership-inner .banner-img {
+  @media (max-width: 768px) {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+.customer-form {
+  @media (max-width: 768px) {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 48% !important;
+  }
+}
+
+.contact-form {
+  @media (max-width: 768px) {
+    padding: 20px 15px !important;
+    margin-top: 20px;
+  }
+}
+
+.contact-form .row.gap-4 {
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+}
+
+.form-input,
+.form-textarea,
+select {
+  @media (max-width: 768px) {
+    width: 100% !important;
+    font-size: 14px !important;
+  }
+}
+
+.button-sucess {
+  @media (max-width: 768px) {
+    width: 100% !important;
+    
+    a {
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 12px 20px !important;
+    }
+  }
+}
+
+/* Contact section layout - stack on mobile */
+.section.row.justify-center {
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+    
+    .lg\:col-5 {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+/* ============================================
+   GENERAL RESPONSIVE UTILITIES
+   ============================================ */
+@media (max-width: 768px) {
+  /* Hide on mobile if needed */
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  /* Full width on mobile */
+  .full-width-mobile {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Center text on mobile */
+  .text-center-mobile {
+    text-align: center !important;
+  }
+  
+  /* Reduce padding on mobile */
+  .section {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
+  
+  .pt-40 {
+    padding-top: 20px !important;
+  }
+  
+  .pb-10 {
+    padding-bottom: 20px !important;
+  }
+  
+  .pt-10 {
+    padding-top: 15px !important;
+  }
+  
+  .mt-5 {
+    margin-top: 20px !important;
+  }
+  
+  .mt-10 {
+    margin-top: 25px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet adjustments */
+  .section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+/* ============================================
+   SWIPER RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: auto !important;
+  }
+  
+  .h-20 {
+    height: 120px !important;
+  }
 }

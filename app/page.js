@@ -41,17 +41,27 @@ const Home = async () => {
         }}
       >
         <SeoMeta title="Home" />
-        <HomeBanner banner={banner} brands={brands} />
+        <section id="home">
+          <HomeBanner banner={banner} brands={brands} />
+        </section>
         <Cta />
-        <How how={how} />
+        <section id="how">
+          <How how={how} />
+        </section>
         <SliderLine
           brands_line1={brands_line1}
           brands_line2={brands_line2}
           brands_line3={brands_line3}
         />
-        <Courses courses={courses} />
-        <Partnership partnership={partnership} />
-        <Contact />
+        <section id="courses">
+          <Courses courses={courses} />
+        </section>
+        <section id="partnership">
+          <Partnership partnership={partnership} />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
       </div>
     </GSAPWrapper>
   );

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { CgClose } from "react-icons/cg";
+import DownloadModal from "@layouts/components/DownloadModal";
 
 const Header = () => {
   // distructuring the main menu from menu object
@@ -15,25 +16,61 @@ const Header = () => {
   const [sticky, setSticky] = useState(false);
   const headerRef = useRef(null);
   const [direction, setDirection] = useState(null);
+  const [showDownloadModal, setShowDownloadModal] = useState(false);
 
   const pathname = usePathname();
   const asPath = pathname;
+  const isHomePage = pathname === "/";
+
+  // Map menu URLs to section IDs for smooth scrolling on home page
+  const urlToSectionId = {
+    "/": "home",
+    "/about": "how",
+    "/posts": "courses",
+    "/contact": "partnership",
+    "/dowload": "courses", // Download can scroll to courses section
+  };
+
+  // Handle smooth scroll to section
+  const handleScrollToSection = (e, url) => {
+    if (isHomePage && urlToSectionId[url]) {
+      e.preventDefault();
+      const sectionId = urlToSectionId[url];
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const headerHeight = headerRef.current?.clientHeight || 0;
+        const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+        window.scrollTo({
+          top: sectionPosition,
+          behavior: "smooth",
+        });
+        setShowMenu(false); // Close mobile menu after clicking
+      }
+    }
+  };
+
+  // Handle Download menu click - open modal
+  const handleDownloadClick = (e) => {
+    e.preventDefault();
+    setShowDownloadModal(true);
+    setShowMenu(false); // Close mobile menu after clicking
+  };
 
   //sticky header
   useEffect(() => {
-    const header = headerRef.current;
-    const headerHeight = header.clientHeight + 200;
-    let prevScroll = 0;
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-      scrollY > 0 ? setSticky(true) : setSticky(false);
-      if (scrollY > headerHeight) {
-        prevScroll > scrollY ? setDirection(-1) : setDirection(1);
-        prevScroll = scrollY;
-      } else {
-        setDirection(null);
-      }
-    });
+    // const header = headerRef.current;
+    // const headerHeight = header.clientHeight + 200;
+    // let prevScroll = 0;
+    // window.addEventListener("scroll", () => {
+    //   const scrollY = window.scrollY;
+    //   scrollY > 0 ? setSticky(true) : setSticky(false);
+    //   if (scrollY > headerHeight) {
+    //     prevScroll > scrollY ? setDirection(-1) : setDirection(1);
+    //     prevScroll = scrollY;
+    //   } else {
+    //     setDirection(null);
+    //   }
+    // });
   }, []);
 
   // logo source
@@ -41,6 +78,7 @@ const Header = () => {
 
   return (
     <>
+      <DownloadModal isOpen={showDownloadModal} onClose={() => setShowDownloadModal(false)} />
       <div className="header-height-fix"></div>
       <header
         className={`header ${sticky && "header-sticky"} ${
@@ -73,28 +111,72 @@ const Header = () => {
                     <ul className="nav-dropdown-list hidden max-h-0 w-full overflow-hidden border border-border-secondary py-0 transition-all duration-500 group-hover:block group-hover:max-h-[106px] group-hover:py-2 lg:invisible lg:absolute lg:left-1/2 lg:block lg:w-auto lg:-translate-x-1/2 lg:group-hover:visible lg:group-hover:opacity-100">
                       {menu.children.map((child, i) => (
                         <li className="nav-dropdown-item" key={`children-${i}`}>
-                          <Link
-                            href={child.url}
-                            className={`nav-dropdown-link block transition-all ${
-                              asPath === child.url && "active"
-                            }`}
-                          >
-                            {child.name}
-                          </Link>
+                          {child.url === "/dowload" ? (
+                            <a
+                              href="#"
+                              onClick={handleDownloadClick}
+                              className={`nav-dropdown-link block transition-all ${
+                                asPath === child.url && "active"
+                              }`}
+                            >
+                              {child.name}
+                            </a>
+                          ) : isHomePage && urlToSectionId[child.url] ? (
+                            <a
+                              href={`#${urlToSectionId[child.url]}`}
+                              onClick={(e) => handleScrollToSection(e, child.url)}
+                              className={`nav-dropdown-link block transition-all ${
+                                asPath === child.url && "active"
+                              }`}
+                            >
+                              {child.name}
+                            </a>
+                          ) : (
+                            <Link
+                              href={child.url}
+                              className={`nav-dropdown-link block transition-all ${
+                                asPath === child.url && "active"
+                              }`}
+                            >
+                              {child.name}
+                            </Link>
+                          )}
                         </li>
                       ))}
                     </ul>
                   </li>
                 ) : (
                   <li className="nav-item">
-                    <Link
-                      href={menu.url}
-                      className={`nav-link block ${
-                        asPath === menu.url && "active"
-                      }`}
-                    >
-                      {menu.name}
-                    </Link>
+                    {menu.url === "/dowload" ? (
+                      <a
+                        href="#"
+                        onClick={handleDownloadClick}
+                        className={`nav-link block ${
+                          asPath === menu.url && "active"
+                        }`}
+                      >
+                        {menu.name}
+                      </a>
+                    ) : isHomePage && urlToSectionId[menu.url] ? (
+                      <a
+                        href={`#${urlToSectionId[menu.url]}`}
+                        onClick={(e) => handleScrollToSection(e, menu.url)}
+                        className={`nav-link block ${
+                          asPath === menu.url && "active"
+                        }`}
+                      >
+                        {menu.name}
+                      </a>
+                    ) : (
+                      <Link
+                        href={menu.url}
+                        className={`nav-link block ${
+                          asPath === menu.url && "active"
+                        }`}
+                      >
+                        {menu.name}
+                      </Link>
+                    )}
                   </li>
                 )}
               </React.Fragment>

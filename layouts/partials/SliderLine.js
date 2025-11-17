@@ -42,12 +42,12 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
                 {brands_line1.map((brand, index) => (
                   <SwiperSlide
                     style={{width:"273px", height:"194px"}}
-                    className="p-0 h-20 cursor-pointer transition lg:px-1"
+                    className="p-0 cursor-pointer transition lg:px-1"
                     key={"brand-" + index}
                   >
-                    <div className="relative h-full">
+                    <div className="relative w-full h-full">
                       <ImageFallback
-                        className="object-contain"
+                        className="object-contain w-full h-full"
                         src={brand}
                         width={273}
                         height={194}
@@ -83,12 +83,12 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
                 {brands_line2.map((brand, index) => (
                   <SwiperSlide
                     style={{width:"273px", height:"194px"}}
-                    className="p-0 h-20 cursor-pointer transition lg:px-1"
+                    className="p-0 cursor-pointer transition lg:px-1"
                     key={"brand-" + index}
                   >
-                    <div className="relative h-full">
+                    <div className="relative w-full h-full">
                       <ImageFallback
-                        className="object-contain"
+                        className="object-contain w-full h-full"
                         src={brand}
                         width={273}
                         height={194}
@@ -123,12 +123,12 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
                 {brands_line3.map((brand, index) => (
                   <SwiperSlide
                     style={{width:"273px", height:"194px"}}
-                    className="p-0 h-20 cursor-pointer transition lg:px-1"
+                    className="p-0 cursor-pointer transition lg:px-1"
                     key={"brand-" + index}
                   >
-                    <div className="relative h-full">
+                    <div className="relative w-full h-full">
                       <ImageFallback
-                        className="object-contain"
+                        className="object-contain w-full h-full"
                         src={brand}
                         width={273}
                         height={194}
