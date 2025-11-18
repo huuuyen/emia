@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 
 const HomeBanner = ({ banner: bannerData, brands }) => {
   useEffect(() => {
@@ -22,7 +23,7 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
       <div className="container-xl">
         <div className="relative">
           <div className="banner-bg col-12 absolute left-0 top-0">
-           
+          
           </div>
           <div className="row overflow-hidden rounded-2xl">
             <div className="col-12">
@@ -34,12 +35,12 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
                   <div className="mb-8 banner-title bold ">
                     {bannerData.titledetail}
                   </div>
-                  <div className="banner-btn ">
+                  <div className="banner-btn button-sucess">
                     <Link
-                      className="btn btn-primary"
-                      href={bannerData.link.href}
+                      className="btn "
+                      href={bannerData.link.href} 
                     >
-                      {bannerData.link.label}
+                     <span className="flex items-center justify-center gap-2"><span>{bannerData.link.label}</span> <FeatherIcon icon="arrow-right" /></span> 
                     </Link>
                   </div>
                 </div>

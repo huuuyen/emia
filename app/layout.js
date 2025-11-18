@@ -5,6 +5,7 @@ import theme from "@config/theme.json";
 import TwSizeIndicator from "@layouts/components/TwSizeIndicator";
 import Footer from "@layouts/partials/Footer";
 import Header from "@layouts/partials/Header";
+import { LanguageProvider } from "../contexts/LanguageContext";
 import "../styles/style.scss";
 
 export default function RootLayout({ children }) {
@@ -54,10 +55,12 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body suppressHydrationWarning={true}>
-        <TwSizeIndicator />
-        <Header />
-        {children}
-        <Footer />
+        <LanguageProvider>
+          <TwSizeIndicator />
+          <Header />
+          {children}
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

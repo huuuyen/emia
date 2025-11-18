@@ -6,10 +6,27 @@ import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { CgClose } from "react-icons/cg";
 import DownloadModal from "@layouts/components/DownloadModal";
+import LanguageSelector from "@layouts/components/LanguageSelector";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const Header = () => {
+  const { t } = useLanguage();
   // distructuring the main menu from menu object
   const { main } = menu;
+
+  // Map menu names to translation keys
+  const getMenuTranslation = (menuName) => {
+    const menuMap = {
+      "Home": "menu.home",
+      "About EMIA": "menu.about",
+      "Courses & Programs": "menu.courses",
+      "PArtnership": "menu.partnership",
+      "Partnership": "menu.partnership",
+      "Download": "menu.download"
+    };
+    const key = menuMap[menuName];
+    return key ? t(key) : menuName;
+  };
 
   // states declaration
   const [showMenu, setShowMenu] = useState(false);
@@ -103,7 +120,7 @@ const Header = () => {
                 {menu.hasChildren ? (
                   <li className="nav-item nav-dropdown group relative">
                     <span className="nav-link inline-flex items-center">
-                      {menu.name}
+                      {getMenuTranslation(menu.name)}
                       <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                       </svg>
@@ -119,7 +136,7 @@ const Header = () => {
                                 asPath === child.url && "active"
                               }`}
                             >
-                              {child.name}
+                              {getMenuTranslation(child.name)}
                             </a>
                           ) : isHomePage && urlToSectionId[child.url] ? (
                             <a
@@ -129,7 +146,7 @@ const Header = () => {
                                 asPath === child.url && "active"
                               }`}
                             >
-                              {child.name}
+                              {getMenuTranslation(child.name)}
                             </a>
                           ) : (
                             <Link
@@ -138,7 +155,7 @@ const Header = () => {
                                 asPath === child.url && "active"
                               }`}
                             >
-                              {child.name}
+                              {getMenuTranslation(child.name)}
                             </Link>
                           )}
                         </li>
@@ -155,7 +172,7 @@ const Header = () => {
                           asPath === menu.url && "active"
                         }`}
                       >
-                        {menu.name}
+                        {getMenuTranslation(menu.name)}
                       </a>
                     ) : isHomePage && urlToSectionId[menu.url] ? (
                       <a
@@ -165,7 +182,7 @@ const Header = () => {
                           asPath === menu.url && "active"
                         }`}
                       >
-                        {menu.name}
+                        {getMenuTranslation(menu.name)}
                       </a>
                     ) : (
                       <Link
@@ -174,7 +191,7 @@ const Header = () => {
                           asPath === menu.url && "active"
                         }`}
                       >
-                        {menu.name}
+                        {getMenuTranslation(menu.name)}
                       </Link>
                     )}
                   </li>
@@ -192,13 +209,16 @@ const Header = () => {
               </li>
             )}
           </ul>
-          <div className="order-1 ml-auto flex items-center md:ml-0">
+          <div className="order-1 ml-auto flex items-center gap-4 md:ml-0">
+            {/* Language Selector */}
+            <LanguageSelector />
+
             {config.nav_button.enable && (
               <Link
                 className="btn btn-primary hidden lg:flex"
                 href={config.nav_button.link}
               >
-                {config.nav_button.label}
+                {t("navButton")}
               </Link>
             )}
 
