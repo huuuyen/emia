@@ -1,47 +1,47 @@
 /* SF UI Text Font Definition */
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-Light.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-Regular.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-Medium.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-Semibold.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-Semibold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-Bold.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-Heavy.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-Heavy.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -49,48 +49,48 @@
 
 /* Italic variants */
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-LightItalic.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-LightItalic.woff") format("woff");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-RegularItalic.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-RegularItalic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-MediumItalic.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-MediumItalic.woff") format("woff");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-SemiboldItalic.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-SemiboldItalic.woff") format("woff");
   font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-BoldItalic.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-BoldItalic.woff") format("woff");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SF UI Text';
-  src: url('/fonts/SFUIText-HeavyItalic.woff') format('woff');
+  font-family: "SF UI Text";
+  src: url("/fonts/SFUIText-HeavyItalic.woff") format("woff");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -98,33 +98,58 @@
 
 /* Apply SF UI Text font globally */
 * {
-  font-family: 'SF UI Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    "SF UI Text",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
 }
 
-.banner-title{
-  color: #1744F4;
+.banner-title {
+  color: #020617;
   font-weight: 100;
   font-size: 64px;
   line-height: 0.625;
-  .bold{
+  .bold {
     font-weight: bold;
   }
 }
-.banner-title.bold{
-   font-weight: bold;
+.banner-title.bold {
+  font-weight: bold;
 }
-.how-title{
-  color: #1744F4;
-   font-weight: 600;
+.banner-quizz {
+  border: 1px solid #dfe4e7 !important;
+  border-radius: 24px;
+  span {
+    color: #1744f4;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+.how-bg{
+  background-color: #0930C9 !important;
+  color: #FFFFFF;
+}
+.how-title {
+  font-weight: 600;
+}
+.how-font-title{
+  font-size: 48px;
+  font-weight: 400;
+}
+.sub-banner-text{
+  font-size: 24px;
 }
 .recipe {
   .recipe-emia-core {
     display: flex;
     flex-wrap: wrap; /* ✅ Cho phép xuống dòng khi thiếu chỗ */
-    font-family: 'IBM Plex Sans', sans-serif;
-    color: #1744F4;
+    font-family: "IBM Plex Sans", sans-serif;
+    color: #1744f4;
     font-size: 24px;
-    background-color: #F6F8F9;
+    background-color: #f6f8f9;
     min-height: 100px;
     align-items: center;
     justify-content: center;
@@ -133,7 +158,7 @@
 
   .item-core-recipe {
     display: inline-block;
-    background-color: #1744F4;
+    background-color: #1744f4;
     color: white;
     font-size: 20px;
     padding: 2px 8px;
@@ -142,19 +167,18 @@
   }
 }
 
-  .button-sucess>a {
-    background-color: #00CC4E;
-    border-radius: 37px;
-    color: #FFFFFF !important;
-    font-weight: 700;
-  }
+.button-sucess > a {
+  background-color: #00cc4e;
+  border-radius: 37px;
+  color: #ffffff !important;
+  font-weight: 700;
+}
 .align-items-center {
   align-items: center;
 }
 
 .c-courses-section {
   font-weight: 400;
- 
 }
 .c-courses-title span {
   color: #000000;
@@ -162,32 +186,32 @@
   line-height: 120%;
 }
 
-.c-courses-description>p {
-  color: #404C5D;
+.c-courses-description > p {
+  color: #404c5d;
   font-weight: 400;
   font-size: 20px;
   line-height: 140%;
 }
 
-.c-courses-button-download>a {
-  background-color: #00CC4E;
+.c-courses-button-download > a {
+  background-color: #00cc4e;
   border-radius: 37px;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   font-weight: 700;
 }
 
-.c-courses-button-contact>a {
-  color: #1744F4 !important;
+.c-courses-button-contact > a {
+  color: #1744f4 !important;
 }
 
 .c-course-title {
-  color: #1744F4 !important;
+  color: #1744f4 !important;
   font-size: 32px;
   line-height: 140%;
 }
 
 .c-course-subtitle {
-  color: #1744F4 !important;
+  color: #1744f4 !important;
   font-size: 16px;
   line-height: 20px;
 }
@@ -197,9 +221,9 @@
 }
 
 .c-course-duration-label {
-  color: #808C92;
+  color: #808c92;
   font-size: 14px;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 .c-course-item-loop {
@@ -207,7 +231,7 @@
   padding: 0 3px;
   display: inline-block;
   font-size: 10px;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 // .partnership-border {
@@ -221,7 +245,7 @@
   padding: 4px;
   /* độ dày "viền" */
   border-radius: 48px;
-  background: linear-gradient(138.14deg, #1744F4 18.18%, #00CC4E 76.37%);
+  background: linear-gradient(138.14deg, #1744f4 18.18%, #00cc4e 76.37%);
 }
 
 .partnership-inner {
@@ -238,19 +262,19 @@
 
 .form-input {
   height: 40px !important;
-  background-color: #FFFFFF !important;
-  border: 1px solid var(--Border-Neutral-tertiary, #B2B2B2) !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--Border-Neutral-tertiary, #b2b2b2) !important;
 }
 
 .form-textarea {
-  background-color: #FFFFFF !important;
-  border: 1px solid var(--Border-Neutral-tertiary, #B2B2B2) !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--Border-Neutral-tertiary, #b2b2b2) !important;
 }
 
 select {
   height: 40px !important;
-  background-color: #FFFFFF !important;
-  border: 1px solid var(--Border-Neutral-tertiary, #B2B2B2) !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--Border-Neutral-tertiary, #b2b2b2) !important;
   width: 100% !important;
 }
 
@@ -260,10 +284,10 @@ select {
   background-size: cover;
   background-position: center;
   background-color: #1a1a1a;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   // padding-top: 60px;
   padding-bottom: 40px;
-  
+
   @media (max-width: 768px) {
     padding-top: 40px;
     padding-bottom: 30px;
@@ -272,10 +296,10 @@ select {
   }
 
   p {
-    color: #FFFFFF !important;
+    color: #ffffff !important;
     line-height: 1.6;
     margin-bottom: 8px;
-    
+
     @media (max-width: 768px) {
       font-size: 14px;
       margin-bottom: 6px;
@@ -313,17 +337,17 @@ select {
 }
 
 .button-back-to-top > a {
-  border: 2px solid #FFFFFF !important;
+  border: 2px solid #ffffff !important;
   border-radius: 24px !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   padding: 12px 24px;
   transition: all 0.3s ease;
-  
+
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
   }
-  
+
   @media (max-width: 768px) {
     padding: 10px 20px;
     font-size: 14px;
@@ -350,7 +374,7 @@ select {
     font-size: 32px !important;
     line-height: 1.2 !important;
   }
-  
+
   @media (min-width: 769px) and (max-width: 1024px) {
     font-size: 48px !important;
     line-height: 1.1 !important;
@@ -395,7 +419,7 @@ select {
   @media (max-width: 768px) {
     font-size: 24px !important;
   }
-  
+
   @media (min-width: 769px) and (max-width: 1024px) {
     font-size: 28px !important;
   }
@@ -408,7 +432,7 @@ select {
     padding-right: 15px !important;
     margin-bottom: 30px;
   }
-  
+
   @media (min-width: 769px) and (max-width: 1024px) {
     padding-left: 30px !important;
     padding-right: 30px !important;
@@ -423,7 +447,7 @@ select {
       padding: 20px 15px !important;
       min-height: 80px !important;
     }
-    
+
     @media (min-width: 769px) and (max-width: 1024px) {
       font-size: 20px !important;
       padding: 20px 30px !important;
@@ -436,7 +460,7 @@ select {
       padding: 2px 6px !important;
       margin: 3px !important;
     }
-    
+
     @media (min-width: 769px) and (max-width: 1024px) {
       font-size: 18px !important;
     }
@@ -461,7 +485,7 @@ select {
     justify-content: center !important;
     overflow: visible !important;
   }
-  
+
   > div {
     @media (max-width: 768px) {
       width: 100% !important;
@@ -471,7 +495,7 @@ select {
       justify-content: center !important;
     }
   }
-  
+
   img,
   [class*="ImageFallback"] {
     @media (max-width: 768px) {
@@ -497,7 +521,7 @@ select {
       line-height: 120% !important;
       display: block;
     }
-    
+
     @media (min-width: 769px) and (max-width: 1024px) {
       font-size: 40px !important;
     }
@@ -515,10 +539,10 @@ select {
     @media (max-width: 768px) {
       flex-direction: column !important;
       gap: 15px !important;
-      
+
       .col-auto {
         width: 100% !important;
-        
+
         a {
           display: block;
           text-align: center;
@@ -534,7 +558,7 @@ select {
       line-height: 130% !important;
       margin-top: 20px;
     }
-    
+
     @media (min-width: 769px) and (max-width: 1024px) {
       font-size: 28px !important;
     }
@@ -551,7 +575,7 @@ select {
     @media (max-width: 768px) {
       flex-direction: column !important;
       gap: 15px !important;
-      
+
       .lg\:col-8,
       .lg\:col-3 {
         width: 100% !important;
@@ -576,11 +600,11 @@ select {
         max-width: 100% !important;
         margin-bottom: 20px;
       }
-      
+
       .c-course-image {
         order: 1;
       }
-      
+
       .c-course-content {
         order: 2;
       }
@@ -604,7 +628,7 @@ select {
     border-radius: 22px !important;
     padding: 20px 15px !important;
   }
-  
+
   @media (min-width: 769px) and (max-width: 1024px) {
     padding: 30px 20px !important;
   }
@@ -613,7 +637,7 @@ select {
 .partnership-inner .c-courses-header {
   @media (max-width: 768px) {
     flex-direction: column !important;
-    
+
     .lg\:col-5 {
       width: 100% !important;
       max-width: 100% !important;
@@ -637,7 +661,7 @@ select {
     width: 100% !important;
     margin-bottom: 15px;
   }
-  
+
   @media (min-width: 769px) and (max-width: 1024px) {
     width: 48% !important;
   }
@@ -669,7 +693,7 @@ select {
 .button-sucess {
   @media (max-width: 768px) {
     width: 100% !important;
-    
+
     a {
       display: block;
       text-align: center;
@@ -683,7 +707,7 @@ select {
 .section.row.justify-center {
   @media (max-width: 768px) {
     flex-direction: column !important;
-    
+
     .lg\:col-5 {
       width: 100% !important;
       max-width: 100% !important;
@@ -700,40 +724,40 @@ select {
   .hide-mobile {
     display: none !important;
   }
-  
+
   /* Full width on mobile */
   .full-width-mobile {
     width: 100% !important;
     max-width: 100% !important;
   }
-  
+
   /* Center text on mobile */
   .text-center-mobile {
     text-align: center !important;
   }
-  
+
   /* Reduce padding on mobile */
   .section {
     padding-top: 30px !important;
     padding-bottom: 30px !important;
   }
-  
+
   .pt-40 {
     padding-top: 20px !important;
   }
-  
+
   .pb-10 {
     padding-bottom: 20px !important;
   }
-  
+
   .pt-10 {
     padding-top: 15px !important;
   }
-  
+
   .mt-5 {
     margin-top: 20px !important;
   }
-  
+
   .mt-10 {
     margin-top: 25px !important;
   }
@@ -754,7 +778,7 @@ select {
   .swiper-slide {
     width: auto !important;
   }
-  
+
   .h-20 {
     height: 120px !important;
   }

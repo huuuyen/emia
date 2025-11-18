@@ -44,7 +44,7 @@ const Home = async () => {
         <section id="home">
           <HomeBanner banner={banner} brands={brands} />
         </section>
-        <Cta />
+        {/* <Cta /> */}
         <section id="how">
           <How how={how} />
         </section>

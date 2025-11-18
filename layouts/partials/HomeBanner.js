@@ -29,12 +29,22 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
             <div className="col-12">
               <div className="row relative justify-center pb-10">
                 <div className="banner-content col-10 pb-10 pt-40 text-center">
+                  <div>
+                     <Link
+                      className="btn mb-10 banner-quizz"
+                      href={bannerData.quizz.link} 
+                    >
+                     <span className="flex items-center justify-center gap-2"><span>{bannerData.quizz.label}</span> <FeatherIcon icon="arrow-right" /></span>
+                    </Link>
+                  </div>
                   <div className="mb-8 banner-title ">
                     {bannerData.title}
                   </div>
                   <div className="mb-8 banner-title bold ">
                     {bannerData.titledetail}
                   </div>
+                  {markdownify("Vietnam’s pioneering CX Academy in ", "div", "sub-banner-text")}
+                 {markdownify("Experience Management & Innovation.", "div", "sub-banner-text mb-10")}
                   <div className="banner-btn button-sucess">
                     <Link
                       className="btn "
@@ -43,8 +53,11 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
                      <span className="flex items-center justify-center gap-2"><span>{bannerData.link.label}</span> <FeatherIcon icon="arrow-right" /></span> 
                     </Link>
                   </div>
+
                 </div>
-                <div className="col-10 pt-10">
+
+                
+                {/* <div className="col-10 pt-10">
                   <ImageFallback
                     className="banner-img"
                     src={bannerData.image}
@@ -53,7 +66,7 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
                     priority={true}
                     alt=""
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

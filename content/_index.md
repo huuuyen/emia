@@ -2,6 +2,9 @@
 banner:
   title: "From Experience"
   titledetail: "To Excellence"
+  quizz:
+    label: Try Self-Assessment Quizz 
+    link: javascript(0)
   image: /images/Frame22.svg
   link:
     label: Find your Courses & Programs
@@ -53,7 +56,36 @@ intro:
   video_id: dyZcRRWiuuw
 
 #how
+# how:
+  # vision:
+  #   subtitle: VISION
+  #   description: To become the leading Experience Management & Innovation Academy in Vietnam and the region.
+  #   image: /images/icon_dow.svg
+#   mission:
+#     subtitle: MISSION
+#     description: Equip professionals and organizations with the mindset, tools, and community to achieve Experience Mastery.
+#     image: /images/icon_dow.svg
+#   people:
+#     subtitle: PEOPLE of EMIA
+#     description: With more than 30 000 hours learning, training and coaching for multiple banks, financial institutions, telecom corporates,... our trainers are not only certified by International Institutions, but also able to localize global best practices for Vietnam business situation..
+#     image_icon_up: /images/icon_up.svg 
+#     image: /images/certi.svg
+#     people_right: /images/people.svg
+#     people_msLan:
+#       name: MS.PHUONG LAN TRAN
+#       position: PH.D, CHAIRWOMAN
+#     people_msHang :
+#       name: MS.THANH HANG NGUYEN
+#       position: CCXP, MANAGING DIRECTOR
+#     people_mrTuan:
+#       name: MR. MANH TUAN TO
+#       position: CCXP, FOUNDER
 how:
+  aboutEmia:
+    subtitle: ABOUT EMIA
+    title: We believe better experiences build better futures.
+    description: EMIA brings global expertise and local insight together to shape the next generation of experience leaders in Vietnam
+    image: /images/how_right.png
   vision:
     subtitle: VISION
     description: To become the leading Experience Management & Innovation Academy in Vietnam and the region.
@@ -78,6 +110,7 @@ how:
       name: MR. MANH TUAN TO
       position: CCXP, FOUNDER
   
+
 brands_line1:
   - /images/slider_people/line1_01.png
   - /images/slider_people/line1_02.png
