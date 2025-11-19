@@ -34,7 +34,7 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
                   <div>
                      <Link
                       className="btn mb-10 banner-quizz"
-                      href={bannerData.quizz.link} 
+                      href="#" 
                     >
                      <span className="flex items-center justify-center gap-2"><span>{t("banner.quizz")}</span> <FeatherIcon icon="arrow-right" /></span>
                     </Link>
@@ -50,7 +50,7 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
                   <div className="banner-btn button-sucess">
                     <Link
                       className="btn "
-                      href={bannerData.link.href} 
+                      href="#"
                     >
                      <span className="flex items-center justify-center gap-2"><span>{t("banner.button")}</span> <FeatherIcon icon="arrow-right" /></span> 
                     </Link>

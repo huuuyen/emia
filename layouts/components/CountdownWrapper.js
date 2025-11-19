@@ -65,21 +65,6 @@ const CountdownWrapper = ({ children }) => {
             <div className="mb-12">
               <CountdownTimer targetDate={launchDate} />
             </div>
-
-            {/* Description */}
-            <p className="text-lg text-gray-600 mb-8">
-              {description}
-            </p>
-
-            {/* CTA Button */}
-            <div className="mt-8">
-              <a
-                href="#contact"
-                className="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
-              >
-                Liên hệ với chúng tôi
-              </a>
-            </div>
           </div>
         </div>
       </div>

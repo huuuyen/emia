@@ -98,24 +98,28 @@ export const CountdownProvider = ({ children }) => {
 
     // Only check every second if countdown hasn't expired yet
     // Once expired, we stop checking
-    if (!isExpired) {
-      const timer = setInterval(() => {
-        const now = new Date().getTime();
-        const target = new Date(launchDate).getTime();
-        const expired = now >= target;
-        
-        if (expired) {
-          setIsExpired(true);
-          if (!useConfigCache && typeof window !== "undefined") {
-            localStorage.setItem(STORAGE_KEY, "true");
-          }
-          clearInterval(timer);
+    // Don't depend on isExpired state, check directly in interval
+    let timer = setInterval(() => {
+      const now = new Date().getTime();
+      const target = new Date(launchDate).getTime();
+      const expired = now >= target;
+      
+      if (expired) {
+        setIsExpired(true);
+        setIsLoading(false);
+        if (!useConfigCache && typeof window !== "undefined") {
+          localStorage.setItem(STORAGE_KEY, "true");
         }
-      }, 1000);
+        clearInterval(timer);
+      }
+    }, 1000);
 
-      return () => clearInterval(timer);
-    }
-  }, [launchDate, STORAGE_KEY, isExpired, forceExpired, enabled, useConfigCache]);
+    return () => {
+      if (timer) {
+        clearInterval(timer);
+      }
+    };
+  }, [launchDate, STORAGE_KEY, forceExpired, enabled, useConfigCache]);
 
   return (
     <CountdownContext.Provider value={{ isExpired, launchDate, isLoading, enabled, forceExpired }}>
