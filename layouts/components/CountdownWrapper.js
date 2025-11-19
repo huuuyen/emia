@@ -7,7 +7,7 @@ import SeoMeta from "@layouts/partials/SeoMeta";
 
 const CountdownWrapper = ({ children }) => {
   const { countdown } = config;
-  const { isExpired, launchDate } = useCountdown();
+  const { isExpired, launchDate, isLoading } = useCountdown();
   const title = countdown?.title || "Sắp ra mắt";
   const subtitle = countdown?.subtitle || "Trang web của chúng tôi sẽ chính thức ra mắt vào ngày";
   const description = countdown?.description || "Đăng ký để nhận thông báo sớm nhất";
@@ -21,6 +21,11 @@ const CountdownWrapper = ({ children }) => {
       day: "numeric",
     });
   };
+
+  // Show loading state to prevent flash
+  if (isLoading) {
+    return null; // or a loading spinner if you prefer
+  }
 
   // If countdown is expired, show the landing page
   if (isExpired) {

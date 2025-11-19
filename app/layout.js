@@ -13,12 +13,13 @@ import "../styles/style.scss";
 function LayoutContent({ children }) {
   const pathname = usePathname();
   const isCountdownPage = pathname === "/countdown";
-  const { isExpired } = useCountdown();
+  const { isExpired, isLoading } = useCountdown();
   
   // Show header/footer if:
   // - Not on countdown page AND
   // - (Not on home page OR countdown is expired)
-  const showHeaderFooter = !isCountdownPage && (pathname !== "/" || isExpired);
+  // - And not loading (to prevent flash)
+  const showHeaderFooter = !isLoading && !isCountdownPage && (pathname !== "/" || isExpired);
   
   return (
     <>
