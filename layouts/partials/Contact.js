@@ -6,9 +6,71 @@ import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import { useLanguage } from "../../contexts/LanguageContext";
+import { useState } from "react";
 
 const Contact = () => {
   const { t } = useLanguage();
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+    subject: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [submitMessage, setSubmitMessage] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setSubmitMessage(data.message || t("contact.successMessage"));
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+          subject: "",
+        });
+      } else {
+        setSubmitStatus("error");
+        setSubmitMessage(data.error || t("contact.errorMessage"));
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+      setSubmitMessage(t("contact.errorMessage"));
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section className="section c-courses-section">
       <div className="container">
@@ -21,7 +83,7 @@ const Contact = () => {
             <div className="c-course-duration-label">{t("contact.address")}</div>
             {markdownify(t("contact.addressLine1"), "div", "")}
             {markdownify(t("contact.addressLine2"), "div", "mb-10")}
-            <FeatherIcon icon="at-sign" className="icon-contact"/>
+            <FeatherIcon icon="at-sign" className="icon-contact" />
             <div className="c-course-duration-label ">{t("contact.contact")}</div>
             {markdownify(t("contact.phone"), "div", "")}
             {markdownify(t("contact.email"), "div", "")}
@@ -35,11 +97,23 @@ const Contact = () => {
           </div>
           <div className="animate lg:col-5">
             <form
-              method="POST"
-              action="#"
+              onSubmit={handleSubmit}
               className=" contact-form rounded-xl "
             >
               <div>{t("contact.description")}</div>
+
+              {/* Status Message */}
+              {submitStatus && (
+                <div
+                  className={`mb-4 p-4 rounded-lg ${submitStatus === "success"
+                      ? "bg-green-100 text-green-800 border border-green-300"
+                      : "bg-red-100 text-red-800 border border-red-300"
+                    }`}
+                >
+                  {submitMessage}
+                </div>
+              )}
+
               <div className="row gap-4 mt-6 mb-6 justify-between">
                 <div className=" lg:col-6 customer-form">
                   <div className="">
@@ -51,8 +125,11 @@ const Contact = () => {
                     </label>
                     <input
                       className="form-input w-full"
-                      name="name"
+                      name="firstName"
+                      id="firstname"
                       type="text"
+                      value={formData.firstName}
+                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -66,8 +143,11 @@ const Contact = () => {
                     </label>
                     <input
                       className="form-input w-full"
-                      name="name"
+                      name="lastName"
+                      id="lastname"
                       type="text"
+                      value={formData.lastName}
+                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -78,14 +158,17 @@ const Contact = () => {
                   <div className="">
                     <label
                       className="mb-2 block font-medium text-dark"
-                      htmlFor="firstname"
+                      htmlFor="email"
                     >
                       {t("contact.companyEmail")}
                     </label>
                     <input
                       className="form-input w-full"
-                      name="name"
-                      type="text"
+                      name="email"
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder={t("contact.companyEmailPlaceholder")}
                       required
                     />
@@ -95,13 +178,16 @@ const Contact = () => {
                   <div className="">
                     <label
                       className="mb-2 block font-medium text-dark"
-                      htmlFor="lastname">
+                      htmlFor="phone">
                       {t("contact.phoneNumber")}
                     </label>
                     <input
                       className="form-input w-full"
-                      name="name"
-                      type="text"
+                      name="phone"
+                      id="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
                       placeholder={t("contact.phonePlaceholder")}
                       required
                     />
@@ -115,28 +201,62 @@ const Contact = () => {
                 >
                   {t("contact.message")}
                 </label>
-                <textarea className="form-textarea w-full" rows="6" placeholder={t("contact.messagePlaceholder")} />
+                <textarea
+                  className="form-textarea w-full"
+                  name="message"
+                  id="message"
+                  rows="6"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder={t("contact.messagePlaceholder")}
+                />
               </div>
 
               <div className="mb-6">
-
-                <select>
-                  <option value="someOption">{t("contact.requestInfo")}</option>
-                  <option value="otherOption">{t("contact.coursePrograms")}</option>
-                  <option value="otherOption">{t("contact.partnership")}</option>
-                  <option value="otherOption">{t("contact.feedback")}</option>
-                  <option value="otherOption">{t("contact.friendlyMessage")}</option>
-
+                <label
+                  className="mb-2 block font-medium text-dark"
+                  htmlFor="subject"
+                >
+                  {t("contact.subject")}
+                </label>
+                <select
+                  name="subject"
+                  id="subject"
+                  className="form-input w-full"
+                  value={formData.subject}
+                  onChange={handleChange}
+                >
+                  <option value="">{t("contact.selectSubject")}</option>
+                  <option value="requestInfo">{t("contact.requestInfo")}</option>
+                  <option value="coursePrograms">{t("contact.coursePrograms")}</option>
+                  <option value="partnership">{t("contact.partnership")}</option>
+                  <option value="feedback">{t("contact.feedback")}</option>
+                  <option value="friendlyMessage">{t("contact.friendlyMessage")}</option>
                 </select>
               </div>
               <div className="button-sucess">
-                <Link
-                  className="btn mb-10 "
-                  href="javascript(0)"
-                >
-                  <span className="flex items-center justify-center gap-2"><span>{t("contact.sendMessage")}</span> <FeatherIcon icon="arrow-right" /></span>
-                </Link>
+                {/* <button type="submit" className="btn flex-1 btn-dowload">
+                  <span className="flex items-center justify-center gap-2">
+                    <span> {t("downloadModal.download")} </span>
+                    <FeatherIcon icon="arrow-right" />
 
+                  </span>
+                </button> */}
+
+                <button
+                  type="submit"
+                  className="btn flex-1 btn-dowload"
+                  disabled={isSubmitting}
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    <span>
+                      {isSubmitting
+                        ? t("contact.sending")
+                        : t("contact.sendMessage")}
+                    </span>
+                    {!isSubmitting && <FeatherIcon icon="arrow-right" />}
+                  </span>
+                </button>
               </div>
             </form>
           </div>
