@@ -4,6 +4,7 @@ import ImageFallback from "@layouts/components/ImageFallback";
 import { useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { useLanguage } from "../../contexts/LanguageContext";
+import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 
 const DownloadModal = ({ isOpen, onClose }) => {
   const { t } = useLanguage();
@@ -103,13 +104,17 @@ const DownloadModal = ({ isOpen, onClose }) => {
                 />
               </div>
 
-              <div className="flex flex-col gap-4 pt-2 sm:flex-row">
-                <button type="submit" className="btn flex-1">
-                  {t("downloadModal.download")}
+              <div className="flex flex-col gap-4 pt-2 sm:flex-row ">
+                <button type="submit" className="btn flex-1 btn-dowload">
+                <span className="flex items-center justify-center gap-2">
+                    <span> {t("downloadModal.download")} </span>
+                    <FeatherIcon icon="arrow-right" />
+
+                  </span>
                 </button>
                 <button
                   type="button"
-                  className="btn flex-1 border border-gray-300 text-dark"
+                  className="btn flex-1 text-dark text-[#1744F4]"
                   onClick={handleLater}
                 >
                   {t("downloadModal.later")}

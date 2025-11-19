@@ -21,7 +21,7 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
       <div className="container-xl">
         <div className="relative">
           <div className="row ">
-            <div className="animate from-right col-12">
+            <div className="animate  col-12 mb-5">
               <Swiper
                 loop={true}
                 slidesPerView={2}
@@ -47,7 +47,7 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
               >
                 {brands_line1.map((brand, index) => (
                   <SwiperSlide
-                    className="p-0 cursor-pointer transition lg:px-1 swiper-slide-responsive"
+                    className=" cursor-pointer transition lg:px-1 swiper-slide-responsive"
                     key={"brand-" + index}
                   >
                     <div className="relative w-full h-full">
@@ -66,7 +66,7 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
             </div>
 
             {/* line 2 - chạy ngược */}
-            <div className="animate from-right col-12">
+            <div className="animate col-12 mb-5">
               <Swiper
                 loop={true}
                 slidesPerView={2}

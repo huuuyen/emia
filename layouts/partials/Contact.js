@@ -14,7 +14,7 @@ const Contact = () => {
       <div className="container">
         <div className="section row  justify-center">
           <div className="animate lg:col-5">
-            <div className="animate c-courses-title pl-0">
+            <div className="c-courses-title pl-0">
               {markdownify(t("contact.title"), "span", "pl-0 mt-4 mb-10")}
             </div>
             <FeatherIcon icon="map-pin" className="icon-map" />
@@ -41,7 +41,7 @@ const Contact = () => {
             >
               <div>{t("contact.description")}</div>
               <div className="row gap-4 mt-6 mb-6 justify-between">
-                <div className="animate lg:col-6 customer-form">
+                <div className=" lg:col-6 customer-form">
                   <div className="">
                     <label
                       className="mb-2 block font-medium text-dark"
@@ -57,7 +57,7 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-                <div className="animate lg:col-6 customer-form">
+                <div className=" lg:col-6 customer-form">
                   <div className="">
                     <label
                       className="mb-2 block font-medium text-dark"
@@ -74,7 +74,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="row gap-4 mt-6 mb-6 justify-between">
-                <div className="animate lg:col-6 customer-form">
+                <div className=" lg:col-6 customer-form">
                   <div className="">
                     <label
                       className="mb-2 block font-medium text-dark"
@@ -91,7 +91,7 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-                <div className="animate lg:col-6 customer-form">
+                <div className=" lg:col-6 customer-form">
                   <div className="">
                     <label
                       className="mb-2 block font-medium text-dark"
