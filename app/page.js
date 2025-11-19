@@ -1,6 +1,5 @@
 import Cta from "@layouts/components/Cta";
 import GSAPWrapper from "@layouts/components/GSAPWrapper";
-import CountdownWrapper from "@layouts/components/CountdownWrapper";
 import Features from "@layouts/partials/Features";
 import HomeBanner from "@layouts/partials/HomeBanner";
 import SeoMeta from "@layouts/partials/SeoMeta";
@@ -18,7 +17,6 @@ import Courses from "@layouts/partials/Courses";
 import Partnership from "@layouts/partials/Partnership";
 import Contact from "@layouts/partials/Contact";
 import LevelEMIA from "@layouts/partials/LevelEMIA";
-
 const Home = async () => {
   const homepage = await getListPage("content/_index.md");
   const { vector_bg } = config.site;
@@ -34,8 +32,7 @@ const Home = async () => {
     partnership,
     levelemia
   } = frontmatter;
-  
-  const landingPageContent = (
+  return (
     <GSAPWrapper>
       <div
         className="test_demo container"
@@ -72,12 +69,6 @@ const Home = async () => {
         </section>
       </div>
     </GSAPWrapper>
-  );
-
-  return (
-    <CountdownWrapper>
-      {landingPageContent}
-    </CountdownWrapper>
   );
 };
 
