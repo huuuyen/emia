@@ -217,7 +217,7 @@ const Header = () => {
 
             {config.nav_button.enable && (
               <Link
-                className="btn btn-primary hidden lg:flex"
+                className="btn btn-primary hidden lg:flex rounded-[41px]"
                 href="#contact"
               >
                 {t("navButton")}

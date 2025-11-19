@@ -55,5 +55,11 @@
     "enable": true,
     "shortname": "themefisher-template",
     "settings": {}
+  },
+  "countdown": {
+    "launch_date": "2025-11-21T12:00:10",
+    "title": "EMIA sắp ra mắt",
+    "subtitle": "Trang web của chúng tôi sẽ chính thức ra mắt vào ngày",
+    "description": "Đăng ký để nhận thông báo sớm nhất về ngày ra mắt"
   }
 }

@@ -6,7 +6,29 @@ import TwSizeIndicator from "@layouts/components/TwSizeIndicator";
 import Footer from "@layouts/partials/Footer";
 import Header from "@layouts/partials/Header";
 import { LanguageProvider } from "../contexts/LanguageContext";
+import { CountdownProvider, useCountdown } from "../contexts/CountdownContext";
+import { usePathname } from "next/navigation";
 import "../styles/style.scss";
+
+function LayoutContent({ children }) {
+  const pathname = usePathname();
+  const isCountdownPage = pathname === "/countdown";
+  const { isExpired } = useCountdown();
+  
+  // Show header/footer if:
+  // - Not on countdown page AND
+  // - (Not on home page OR countdown is expired)
+  const showHeaderFooter = !isCountdownPage && (pathname !== "/" || isExpired);
+  
+  return (
+    <>
+      <TwSizeIndicator />
+      {showHeaderFooter && <Header />}
+      {children}
+      {showHeaderFooter && <Footer />}
+    </>
+  );
+}
 
 export default function RootLayout({ children }) {
   // import google font css
@@ -56,10 +78,9 @@ export default function RootLayout({ children }) {
       </head>
       <body suppressHydrationWarning={true}>
         <LanguageProvider>
-          <TwSizeIndicator />
-          <Header />
-          {children}
-          <Footer />
+          <CountdownProvider>
+            <LayoutContent>{children}</LayoutContent>
+          </CountdownProvider>
         </LanguageProvider>
       </body>
     </html>
