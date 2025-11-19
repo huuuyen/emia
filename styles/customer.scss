@@ -196,7 +196,10 @@
 .c-courses-section {
   font-weight: 400;
 }
-
+.c-courses-title  {
+  padding-left:  0 !important;
+  padding-right: 0 !important;
+}
 .c-courses-title span {
   color: #000000;
   font-size: 48px;
@@ -728,7 +731,6 @@ select {
 
 .contact-form {
   @media (max-width: 768px) {
-    padding: 20px 15px !important;
     margin-top: 20px;
   }
 }

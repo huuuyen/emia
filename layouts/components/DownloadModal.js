@@ -3,9 +3,10 @@
 import ImageFallback from "@layouts/components/ImageFallback";
 import { useState } from "react";
 import { CgClose } from "react-icons/cg";
-import Link from "next/link";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const DownloadModal = ({ isOpen, onClose }) => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,10 +21,7 @@ const DownloadModal = ({ isOpen, onClose }) => {
 
   const handleDownload = (e) => {
     e.preventDefault();
-    // Handle download logic here
-    console.log("Download clicked with data:", formData);
-    // You can add your download logic here
-    // For now, just close the modal
+    // Placeholder for download logic
     onClose();
   };
 
@@ -39,96 +37,83 @@ const DownloadModal = ({ isOpen, onClose }) => {
       onClick={onClose}
     >
       <div
-        className="relative w-[538px] max-w-[95vw] h-[360px] bg-white shadow-xl"
-        style={{ borderRadius: "24px", padding: "24px" }}
+        className="relative flex h-auto w-full max-w-3xl flex-col overflow-hidden rounded-3xl bg-white p-6 shadow-xl lg:h-[360px]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute right-3 top-3 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-gray-200"
+          className="absolute right-4 top-4 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-colors hover:bg-gray-200"
+          aria-label="Close download modal"
         >
           <CgClose className="h-4 w-4" />
         </button>
 
-        <div className="flex h-full" style={{ gap: "31px" }}>
-          {/* Left side - Image */}
-          <div
-            className="flex-shrink-0"
-            style={{ width: "calc(50% - 15.5px)", height: "100%" }}
-          >
+        <div className="flex h-full flex-col gap-6 lg:flex-row">
+          <div className="hidden flex-shrink-0 overflow-hidden rounded-2xl lg:block lg:w-1/2">
             <ImageFallback
               src="/images/left_popup_dowload.png"
               alt="Download Resource"
               width={245}
               height={312}
-              className="h-full w-full object-cover rounded-lg"
+              className="h-full w-full object-cover"
               fallbackSrc="/images/banner-app.png"
+              priority
             />
           </div>
 
-          {/* Right side - Form */}
-          <div className="flex-1 bg-white flex flex-col justify-center h-full">
-            <form
-              onSubmit={handleDownload}
-              className="h-full flex flex-col justify-center"
-            >
-              {/* Title text */}
-              <p className="text-sm text-dark mb-6">
-                Find out more about our program detail & useful content for your
-                CX journey
-              </p>
+          <div className="flex flex-1 flex-col justify-center">
+            <form onSubmit={handleDownload} className="space-y-6">
+              <p className="text-sm text-dark">{t("downloadModal.title")}</p>
 
-              {/* Your Name Input */}
-              <div style={{ marginBottom: "31px" }}>
+              <div>
                 <label
-                  htmlFor="name"
+                  htmlFor="download-name"
                   className="mb-1 block text-xs font-medium text-dark"
                 >
-                  Your Name <span className="text-red-500">*</span>
+                  {t("downloadModal.name")} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
-                  id="name"
+                  id="download-name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
                   className="form-input w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                  placeholder="Enter your name"
+                  placeholder={t("downloadModal.namePlaceholder")}
                 />
               </div>
 
-              {/* Your Company Email Input */}
-              <div style={{ marginBottom: "31px" }}>
+              <div>
                 <label
-                  htmlFor="email"
+                  htmlFor="download-email"
                   className="mb-1 block text-xs font-medium text-dark"
                 >
-                  Your Company Email <span className="text-red-500">*</span>
+                  {t("downloadModal.email")} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  id="download-email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
                   className="form-input w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                  placeholder="yourname@company.com"
+                  placeholder={t("downloadModal.emailPlaceholder")}
                 />
               </div>
 
-              {/* Buttons */}
-              <div className="flex" style={{ gap: "31px" }}>
-                <div className="col-auto c-courses-button-download">
-                  <Link className="btn " href="javascript:void(0)">
-                    Download
-                  </Link>
-                </div>
-                <Link className="btn " href="javascript:void(0)">
-                  Later
-                </Link>
+              <div className="flex flex-col gap-4 pt-2 sm:flex-row">
+                <button type="submit" className="btn flex-1">
+                  {t("downloadModal.download")}
+                </button>
+                <button
+                  type="button"
+                  className="btn flex-1 border border-gray-300 text-dark"
+                  onClick={handleLater}
+                >
+                  {t("downloadModal.later")}
+                </button>
               </div>
             </form>
           </div>

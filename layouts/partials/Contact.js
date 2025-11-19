@@ -14,8 +14,8 @@ const Contact = () => {
       <div className="container">
         <div className="section row  justify-center">
           <div className="animate lg:col-5">
-            <div className="animate c-courses-title">
-              {markdownify(t("contact.title"), "span", "mt-4 mb-10")}
+            <div className="animate c-courses-title pl-0">
+              {markdownify(t("contact.title"), "span", "pl-0 mt-4 mb-10")}
             </div>
             <FeatherIcon icon="map-pin" className="icon-map" />
             <div className="c-course-duration-label">{t("contact.address")}</div>
@@ -86,7 +86,7 @@ const Contact = () => {
                       className="form-input w-full"
                       name="name"
                       type="text"
-                      placeholder="yourname@company.com"
+                      placeholder={t("contact.companyEmailPlaceholder")}
                       required
                     />
                   </div>
@@ -102,7 +102,7 @@ const Contact = () => {
                       className="form-input w-full"
                       name="name"
                       type="text"
-                      placeholder="+ 84 999 999 9999"
+                      placeholder={t("contact.phonePlaceholder")}
                       required
                     />
                   </div>

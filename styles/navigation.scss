@@ -83,22 +83,67 @@
 
 // language selector style
 .language-selector {
-  .language-select {
-    @apply appearance-none bg-no-repeat bg-right pr-8 cursor-pointer transition-colors;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
-    background-position: right 0.5rem center;
-    background-size: 1.5em 1.5em;
-    
+  @apply relative inline-block text-left;
+
+  &__toggle {
+    @apply flex items-center gap-3 rounded-lg border border-gray-300 bg-white px-3 py-1 text-sm font-medium text-dark shadow-sm transition-colors duration-150 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20;
+    min-width: 140px;
+
     &:hover {
-      @apply border-primary;
+      @apply border-primary text-primary;
     }
-    
-    &:focus {
-      @apply border-primary ring-2 ring-primary/20 outline-none;
-    }
-    
+
     @media (max-width: 768px) {
-      @apply text-xs h-8 px-2;
+      @apply h-8 px-2 text-xs gap-2;
+      min-width: 110px;
+    }
+  }
+
+  &__label {
+    @apply flex items-center gap-1 leading-tight text-left;
+  }
+
+  &__abbr {
+    @apply text-xs font-semibold uppercase tracking-widest text-gray-500;
+  }
+
+  &__name {
+    @apply text-sm font-medium text-dark;
+
+    @media (max-width: 768px) {
+      @apply text-xs;
+    }
+  }
+
+  &__flag {
+    @apply h-5 w-5 rounded-full object-cover ring-1 ring-gray-200;
+  }
+
+  &__chevron {
+    @apply h-4 w-4 text-gray-500 transition-transform duration-200;
+
+    &.is-open {
+      @apply rotate-180;
+    }
+  }
+
+  &__menu {
+    @apply absolute right-0 z-20 mt-2 w-48 origin-top-right rounded-lg border border-gray-200 bg-white py-2 shadow-lg focus:outline-none;
+
+    @media (max-width: 768px) {
+      @apply w-40;
+    }
+  }
+
+  &__option {
+    @apply flex w-full items-center justify-between gap-3 px-3 py-2 text-left text-sm text-dark transition-colors duration-150;
+
+    &:hover {
+      @apply bg-gray-100;
+    }
+
+    &.is-active {
+      @apply bg-primary/5 text-primary;
     }
   }
 }
