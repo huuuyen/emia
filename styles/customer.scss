@@ -112,40 +112,52 @@
   font-weight: 100;
   font-size: 64px;
   line-height: 0.625;
+
   .bold {
     font-weight: bold;
   }
 }
+
 .banner-title.bold {
   font-weight: bold;
 }
+
 .banner-quizz {
   border: 1px solid #dfe4e7 !important;
   border-radius: 24px;
+
   span {
     color: #1744f4;
     font-size: 14px;
     font-weight: 500;
   }
 }
-.how-bg{
+
+.how-bg {
   background-color: #0930C9 !important;
   color: #FFFFFF;
+  border-radius: 32px !important;
 }
+
 .how-title {
   font-weight: 600;
 }
-.how-font-title{
+
+.how-font-title {
   font-size: 48px;
   font-weight: 400;
+  line-height: 48px;
 }
-.sub-banner-text{
+
+.sub-banner-text {
   font-size: 24px;
 }
+
 .recipe {
   .recipe-emia-core {
     display: flex;
-    flex-wrap: wrap; /* ✅ Cho phép xuống dòng khi thiếu chỗ */
+    flex-wrap: wrap;
+    /* ✅ Cho phép xuống dòng khi thiếu chỗ */
     font-family: "IBM Plex Sans", sans-serif;
     color: #1744f4;
     font-size: 24px;
@@ -153,7 +165,8 @@
     min-height: 100px;
     align-items: center;
     justify-content: center;
-    text-align: center; /* giúp chữ xuống dòng đẹp hơn */
+    text-align: center;
+    /* giúp chữ xuống dòng đẹp hơn */
   }
 
   .item-core-recipe {
@@ -162,17 +175,20 @@
     color: white;
     font-size: 20px;
     padding: 2px 8px;
-    margin: 4px; /* thêm khoảng cách giữa các span khi xuống dòng */
-    border-radius: 6px; /* tuỳ chọn */
+    margin: 4px;
+    /* thêm khoảng cách giữa các span khi xuống dòng */
+    border-radius: 6px;
+    /* tuỳ chọn */
   }
 }
 
-.button-sucess > a {
+.button-sucess>a {
   background-color: #00cc4e;
   border-radius: 37px;
   color: #ffffff !important;
   font-weight: 700;
 }
+
 .align-items-center {
   align-items: center;
 }
@@ -180,27 +196,28 @@
 .c-courses-section {
   font-weight: 400;
 }
+
 .c-courses-title span {
   color: #000000;
   font-size: 48px;
   line-height: 120%;
 }
 
-.c-courses-description > p {
+.c-courses-description>p {
   color: #404c5d;
   font-weight: 400;
   font-size: 20px;
   line-height: 140%;
 }
 
-.c-courses-button-download > a {
+.c-courses-button-download>a {
   background-color: #00cc4e;
   border-radius: 37px;
   color: #ffffff !important;
   font-weight: 700;
 }
 
-.c-courses-button-contact > a {
+.c-courses-button-contact>a {
   color: #1744f4 !important;
 }
 
@@ -336,7 +353,7 @@ select {
   }
 }
 
-.button-back-to-top > a {
+.button-back-to-top>a {
   border: 2px solid #ffffff !important;
   border-radius: 24px !important;
   color: #ffffff !important;
@@ -486,7 +503,7 @@ select {
     overflow: visible !important;
   }
 
-  > div {
+  >div {
     @media (max-width: 768px) {
       width: 100% !important;
       height: 100% !important;
@@ -515,7 +532,11 @@ select {
     padding: 30px 15px !important;
   }
 
-  .c-courses-title span {
+  .c-courses-header {
+    text-align: center !important;
+  }
+
+  .c-courses-title>span {
     @media (max-width: 768px) {
       font-size: 32px !important;
       line-height: 120% !important;
@@ -527,7 +548,7 @@ select {
     }
   }
 
-  .c-courses-description > p {
+  .c-courses-description>p {
     @media (max-width: 768px) {
       font-size: 16px !important;
       line-height: 140% !important;
@@ -536,6 +557,8 @@ select {
   }
 
   .c-courses-buttons {
+    justify-content: center;
+
     @media (max-width: 768px) {
       flex-direction: column !important;
       gap: 15px !important;
@@ -594,6 +617,7 @@ select {
   /* Course item layout - stack on mobile */
   .c-courses-item {
     @media (max-width: 768px) {
+
       .c-course-image,
       .c-course-content {
         width: 100% !important;
@@ -635,6 +659,8 @@ select {
 }
 
 .partnership-inner .c-courses-header {
+  text-align: center !important;
+
   @media (max-width: 768px) {
     flex-direction: column !important;
 
@@ -654,8 +680,41 @@ select {
 }
 
 /* ============================================
+   LEVELEMIA
+   ============================================ */
+.levelemia-label {
+  font-size: 32px;
+  line-height: 140%;
+  font-weight: 400;
+  font-family: "Source Serif Pro", sans-serif;
+  color: #020617;
+  text-align: center;
+}
+
+.levelemia-content {
+  background-color: #F6F8F9;
+  border-radius: 32px;
+  padding: 56px 48px 24px 48px !important;
+  text-align: center;
+}
+
+.levelemia-content-label {
+  font-size: 24px;
+  font-family: "Source Serif Pro", sans-serif;
+  color: #000000;
+}
+
+.levelemia-content-description {}
+
+/* ============================================
    CONTACT SECTION
    ============================================ */
+
+.icon-map,
+.icon-contact {
+  color: #1744F4;
+}
+
 .customer-form {
   @media (max-width: 768px) {
     width: 100% !important;
@@ -720,6 +779,7 @@ select {
    GENERAL RESPONSIVE UTILITIES
    ============================================ */
 @media (max-width: 768px) {
+
   /* Hide on mobile if needed */
   .hide-mobile {
     display: none !important;
@@ -764,6 +824,7 @@ select {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+
   /* Tablet adjustments */
   .section {
     padding-top: 40px !important;

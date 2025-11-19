@@ -159,7 +159,7 @@ speciality:
     image: /images/features-02.png
 
 courses:
-  title: EMIA Programs and Courses
+  title: Explore EMIA Courses and Programs
   description: Empowering leaders and teams to master customer experience from strategy to action.
   button:
     label: Download Brochure
@@ -221,4 +221,17 @@ partnership:
     label: Be EMIA Partner
     link: javascript(0) 
   image: /images/partnership.png
+
+
+levelemia:
+  title: Elevate to your next levels with EMIA
+  description: With world-class partners like CXPA, Qualtrics XM Institute, and QuestionPro, EMIA bridges global expertise with local insight. You’ll gain the methodologies and platforms trusted by the world’s best to scale your business with precision and confidence.
+  left: 
+    label: Find your own way to grow your success with clear vision & roadmap.
+    description: Build your skills step by step,  from foundation to leadership, through hands-on CX and XM learning paths designed for real business growth.
+    image: /images/lv-left.png
+  right:
+    label: Have mindset and practice with Primary & Advanced toolkits.
+    description: Master both essential and advanced tools to design, measure, and improve experiences, from pen-and-paper methods to AI and analytics platforms.
+    image: /images/lv_right.png
 ---

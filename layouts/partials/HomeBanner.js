@@ -9,8 +9,10 @@ import { useEffect } from "react";
 import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const HomeBanner = ({ banner: bannerData, brands }) => {
+  const { t } = useLanguage();
   useEffect(() => {
     const ctx2 = gsap.context(() => {
     });
@@ -34,23 +36,23 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
                       className="btn mb-10 banner-quizz"
                       href={bannerData.quizz.link} 
                     >
-                     <span className="flex items-center justify-center gap-2"><span>{bannerData.quizz.label}</span> <FeatherIcon icon="arrow-right" /></span>
+                     <span className="flex items-center justify-center gap-2"><span>{t("banner.quizz")}</span> <FeatherIcon icon="arrow-right" /></span>
                     </Link>
                   </div>
                   <div className="mb-8 banner-title ">
-                    {bannerData.title}
+                    {t("banner.title")}
                   </div>
                   <div className="mb-8 banner-title bold ">
-                    {bannerData.titledetail}
+                    {t("banner.titleDetail")}
                   </div>
-                  {markdownify("Vietnam’s pioneering CX Academy in ", "div", "sub-banner-text")}
-                 {markdownify("Experience Management & Innovation.", "div", "sub-banner-text mb-10")}
+                  {markdownify(t("banner.subText1"), "div", "sub-banner-text")}
+                 {markdownify(t("banner.subText2"), "div", "sub-banner-text mb-10")}
                   <div className="banner-btn button-sucess">
                     <Link
                       className="btn "
                       href={bannerData.link.href} 
                     >
-                     <span className="flex items-center justify-center gap-2"><span>{bannerData.link.label}</span> <FeatherIcon icon="arrow-right" /></span> 
+                     <span className="flex items-center justify-center gap-2"><span>{t("banner.button")}</span> <FeatherIcon icon="arrow-right" /></span> 
                     </Link>
                   </div>
 
@@ -70,40 +72,7 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
               </div>
             </div>
           </div>
-          <div className="row border-y border-border py-5">
-            <div className="animate from-right col-12">
-              <Swiper
-                loop={true}
-                slidesPerView={3}
-                breakpoints={{
-                  992: {
-                    slidesPerView: 5,
-                  },
-                }}
-                spaceBetween={20}
-                modules={[Autoplay]}
-                autoplay={{ delay: 3000 }}
-              >
-                {brands.map((brand, index) => (
-                  <SwiperSlide
-                    className=" h-20 cursor-pointer px-6 py-6 grayscale  transition hover:grayscale-0 lg:px-10"
-                    key={"brand-" + index}
-                  >
-                    <div className="relative h-full">
-                      <ImageFallback
-                        className="object-contain"
-                        src={brand}
-                        sizes="100vw"
-                        alt=""
-                        fill={true}
-                        priority={true}
-                      />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>

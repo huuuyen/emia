@@ -24,13 +24,19 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
             <div className="animate from-right col-12">
               <Swiper
                 loop={true}
-                slidesPerView={3}
+                slidesPerView={2}
                 breakpoints={{
+                  480: {
+                    slidesPerView: 3,
+                  },
+                  768: {
+                    slidesPerView: 4,
+                  },
                   992: {
                     slidesPerView: 5,
                   },
                 }}
-                spaceBetween={0}
+                spaceBetween={10}
                 modules={[Autoplay, FreeMode]}
                 freeMode={true}
                 speed={3000}
@@ -41,8 +47,7 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
               >
                 {brands_line1.map((brand, index) => (
                   <SwiperSlide
-                    style={{width:"273px", height:"194px"}}
-                    className="p-0 cursor-pointer transition lg:px-1"
+                    className="p-0 cursor-pointer transition lg:px-1 swiper-slide-responsive"
                     key={"brand-" + index}
                   >
                     <div className="relative w-full h-full">
@@ -64,13 +69,19 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
             <div className="animate from-right col-12">
               <Swiper
                 loop={true}
-                slidesPerView={3}
+                slidesPerView={2}
                 breakpoints={{
+                  480: {
+                    slidesPerView: 3,
+                  },
+                  768: {
+                    slidesPerView: 4,
+                  },
                   992: {
                     slidesPerView: 5,
                   },
                 }}
-                spaceBetween={0}
+                spaceBetween={10}
                 modules={[Autoplay, FreeMode]}
                 freeMode={true}
                 speed={3000}
@@ -82,8 +93,7 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
               >
                 {brands_line2.map((brand, index) => (
                   <SwiperSlide
-                    style={{width:"273px", height:"194px"}}
-                    className="p-0 cursor-pointer transition lg:px-1"
+                    className="p-0 cursor-pointer transition lg:px-1 swiper-slide-responsive"
                     key={"brand-" + index}
                   >
                     <div className="relative w-full h-full">
@@ -105,13 +115,19 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
             <div className="animate from-right col-12">
               <Swiper
                 loop={true}
-                slidesPerView={3}
+                slidesPerView={2}
                 breakpoints={{
+                  480: {
+                    slidesPerView: 3,
+                  },
+                  768: {
+                    slidesPerView: 4,
+                  },
                   992: {
                     slidesPerView: 5,
                   },
                 }}
-                spaceBetween={0}
+                spaceBetween={10}
                 modules={[Autoplay, FreeMode]}
                 freeMode={true}
                 speed={3000}
@@ -122,8 +138,7 @@ const HomeBanner = ({ brands_line1, brands_line2, brands_line3 }) => {
               >
                 {brands_line3.map((brand, index) => (
                   <SwiperSlide
-                    style={{width:"273px", height:"194px"}}
-                    className="p-0 cursor-pointer transition lg:px-1"
+                    className="p-0 cursor-pointer transition lg:px-1 swiper-slide-responsive"
                     key={"brand-" + index}
                   >
                     <div className="relative w-full h-full">

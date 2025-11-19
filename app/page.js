@@ -16,7 +16,7 @@ import Courses from "@layouts/partials/Courses";
 
 import Partnership from "@layouts/partials/Partnership";
 import Contact from "@layouts/partials/Contact";
-
+import LevelEMIA from "@layouts/partials/LevelEMIA";
 const Home = async () => {
   const homepage = await getListPage("content/_index.md");
   const { vector_bg } = config.site;
@@ -30,6 +30,7 @@ const Home = async () => {
     brands_line3,
     courses,
     partnership,
+    levelemia
   } = frontmatter;
   return (
     <GSAPWrapper>
@@ -48,17 +49,21 @@ const Home = async () => {
         <section id="how">
           <How how={how} />
         </section>
+        <section id="courses">
+          <Courses courses={courses} />
+        </section>
+        <section id="levelemia">
+          <LevelEMIA levelemia={levelemia} banner={banner} />
+        </section>
         <SliderLine
           brands_line1={brands_line1}
           brands_line2={brands_line2}
           brands_line3={brands_line3}
         />
-        <section id="courses">
-          <Courses courses={courses} />
-        </section>
-        <section id="partnership">
+        {/* <section id="partnership">
           <Partnership partnership={partnership} />
-        </section>
+        </section> */}
+       
         <section id="contact">
           <Contact />
         </section>

@@ -1,3 +1,5 @@
+"use client";
+
 import Logo from "@components/Logo";
 import config from "@config/config.json";
 import menu from "@config/menu.json";
@@ -211,7 +213,7 @@ const Header = () => {
           </ul>
           <div className="order-1 ml-auto flex items-center gap-4 md:ml-0">
             {/* Language Selector */}
-            <LanguageSelector />
+           
 
             {config.nav_button.enable && (
               <Link
@@ -221,7 +223,7 @@ const Header = () => {
                 {t("navButton")}
               </Link>
             )}
-
+             <LanguageSelector />
             {/* navbar toggler */}
             {showMenu ? (
               <button
