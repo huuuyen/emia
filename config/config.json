@@ -57,8 +57,8 @@
     "settings": {}
   },
   "countdown": {
-    "enabled": true,
-    "launch_date": "2025-11-20T02:43:10",
+    "enabled": false,
+    "launch_date": "2025-11-21T12:00:00",
     "force_expired": false,
     "use_config_cache": false,
     "title": "EMIA sắp ra mắt",
