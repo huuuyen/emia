@@ -16,18 +16,46 @@ const Header = () => {
   // distructuring the main menu from menu object
   const { main } = menu;
 
-  // Map menu names to translation keys
-  const getMenuTranslation = (menuName) => {
-    const menuMap = {
-      "Home": "menu.home",
-      "About EMIA": "menu.about",
-      "Courses & Programs": "menu.courses",
-      "PArtnership": "menu.partnership",
-      "Partnership": "menu.partnership",
-      "Download": "menu.download"
+  const urlToTranslationKey = {
+    "/": "menu.home",
+    "/about": "menu.about",
+    "/posts": "menu.courses",
+    "/contact": "menu.partnership",
+    "/dowload": "menu.download",
+  };
+
+  const menuNameToTranslationKey = {
+    home: "menu.home",
+    "about emia": "menu.about",
+    "courses & programs": "menu.courses",
+    "request brochure": "menu.download",
+    download: "menu.download",
+    partnership: "menu.partnership",
+  };
+
+  const getMenuTranslation = (menuItem = {}) => {
+    const translateKey = (key) => {
+      if (!key) return null;
+      const translated = t(key);
+      return translated !== key ? translated : null;
     };
-    const key = menuMap[menuName];
-    return key ? t(key) : menuName;
+
+    const translationKeys = [
+      menuItem.translationKey,
+      menuItem.url ? urlToTranslationKey[menuItem.url] : null,
+      menuItem.name
+        ? menuNameToTranslationKey[menuItem.name.trim().toLowerCase()]
+        : null,
+    ];
+
+    for (const key of translationKeys) {
+      const translated = translateKey(key);
+      if (translated) {
+        return translated;
+      }
+    }
+
+    return menuItem.name;
   };
 
   // states declaration
@@ -122,7 +150,7 @@ const Header = () => {
                 {menu.hasChildren ? (
                   <li className="nav-item nav-dropdown group relative">
                     <span className="nav-link inline-flex items-center">
-                      {getMenuTranslation(menu.name)}
+                      {getMenuTranslation(menu)}
                       <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                       </svg>
@@ -138,7 +166,7 @@ const Header = () => {
                                 asPath === child.url && "active"
                               }`}
                             >
-                              {getMenuTranslation(child.name)}
+                              {getMenuTranslation(child)}
                             </a>
                           ) : isHomePage && urlToSectionId[child.url] ? (
                             <a
@@ -148,7 +176,7 @@ const Header = () => {
                                 asPath === child.url && "active"
                               }`}
                             >
-                              {getMenuTranslation(child.name)}
+                              {getMenuTranslation(child)}
                             </a>
                           ) : (
                             <Link
@@ -157,7 +185,7 @@ const Header = () => {
                                 asPath === child.url && "active"
                               }`}
                             >
-                              {getMenuTranslation(child.name)}
+                              {getMenuTranslation(child)}
                             </Link>
                           )}
                         </li>
@@ -174,7 +202,7 @@ const Header = () => {
                           asPath === menu.url && "active"
                         }`}
                       >
-                        {getMenuTranslation(menu.name)}
+                        {getMenuTranslation(menu)}
                       </a>
                     ) : isHomePage && urlToSectionId[menu.url] ? (
                       <a
@@ -184,7 +212,7 @@ const Header = () => {
                           asPath === menu.url && "active"
                         }`}
                       >
-                        {getMenuTranslation(menu.name)}
+                        {getMenuTranslation(menu)}
                       </a>
                     ) : (
                       <Link
@@ -193,7 +221,7 @@ const Header = () => {
                           asPath === menu.url && "active"
                         }`}
                       >
-                        {getMenuTranslation(menu.name)}
+                      {getMenuTranslation(menu)}
                       </Link>
                     )}
                   </li>
@@ -206,7 +234,7 @@ const Header = () => {
                   className="btn btn-primary hidden lg:flex"
                   href={config.nav_button.link}
                 >
-                  {config.nav_button.label}
+                  {t("navButton")}
                 </Link>
               </li>
             )}
