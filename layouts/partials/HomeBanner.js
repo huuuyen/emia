@@ -12,6 +12,10 @@ import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 const HomeBanner = ({ banner: bannerData, brands }) => {
+  const quizLink =
+    process.env.NEXT_PUBLIC_LINK_QUIZZ ??
+    process.env.LINK_QUIZZ ??
+    "#";
   const { t } = useLanguage();
   useEffect(() => {
     const ctx2 = gsap.context(() => {
@@ -34,7 +38,9 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
                   <div>
                      <Link
                       className="btn mb-10 banner-quizz"
-                      href="#" 
+                      href={quizLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                      <span className="flex items-center justify-center gap-2"><span>{t("banner.quizz")}</span> <FeatherIcon icon="arrow-right" /></span>
                     </Link>
