@@ -32,7 +32,12 @@ const How = ({ how }) => {
 
           <div className="row items-center justify-center mt-5">
             <div className="animate lg:col-6 lg:order-2  pl-30 pr-30">
-              <p className="how-title">{t("how.vision.subtitle")}</p>
+              {/* <p className="how-title">{t("how.vision.subtitle")}</p> */}
+              {markdownify(
+                t("how.vision.subtitle"),
+                "p",
+                "mt-4 how-title",
+              )}
               {markdownify(t("how.vision.description"), "p", "mt-5")}
               <ImageFallback
                 className="pt-10"
@@ -43,7 +48,12 @@ const How = ({ how }) => {
               />
             </div>
             <div className="animate lg:col-5 lg:order-1 pl-30 pr-30">
-              <p className="how-title">{t("how.mission.subtitle")}</p>
+            {markdownify(
+                t("how.mission.subtitle"),
+                "p",
+                "mt-4 how-title",
+              )}
+              {/* <p className="how-title">{t("how.mission.subtitle")}</p> */}
               {markdownify(
                 how.mission.title,
                 "h2",
