@@ -106,8 +106,8 @@ const Contact = () => {
               {submitStatus && (
                 <div
                   className={`mb-4 p-4 rounded-lg ${submitStatus === "success"
-                      ? "bg-green-100 text-green-800 border border-green-300"
-                      : "bg-red-100 text-red-800 border border-red-300"
+                    ? "bg-green-100 text-green-800 border border-green-300"
+                    : "bg-red-100 text-red-800 border border-red-300"
                     }`}
                 >
                   {submitMessage}
@@ -227,11 +227,8 @@ const Contact = () => {
                   onChange={handleChange}
                 >
                   <option value="">{t("contact.selectSubject")}</option>
-                  <option value="requestInfo">{t("contact.requestInfo")}</option>
-                  <option value="coursePrograms">{t("contact.coursePrograms")}</option>
-                  <option value="partnership">{t("contact.partnership")}</option>
-                  <option value="feedback">{t("contact.feedback")}</option>
-                  <option value="friendlyMessage">{t("contact.friendlyMessage")}</option>
+                  <option value={t("contact.coursePrograms")}>{t("contact.coursePrograms")}</option>
+                  <option value={t("contact.feedback")}>{t("contact.feedback")}</option>
                 </select>
               </div>
               <div className="button-sucess">

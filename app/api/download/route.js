@@ -3,10 +3,10 @@ import { NextResponse } from 'next/server';
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { firstName, lastName, email, phone, message, subject } = body;
+    const { brochureType, email } = body;
 
     // Validate required fields
-    if (!firstName || !lastName || !email || !phone) {
+    if (!brochureType || !email) {
       return NextResponse.json(
         { error: 'Vui lòng điền đầy đủ thông tin bắt buộc' },
         { status: 400 }
@@ -17,19 +17,12 @@ export async function POST(request) {
     const GOOGLE_SHEETS_WEB_APP_URL = process.env.GOOGLE_SHEETS_WEB_APP_URL;
 
     if (!GOOGLE_SHEETS_WEB_APP_URL) {
-      // If no Google Sheets URL, you can use Google Sheets API directly
-      // For now, we'll return an error asking to configure the URL
       console.error('GOOGLE_SHEETS_WEB_APP_URL is not configured');
       
-      // Alternative: Use Google Sheets API directly if you have credentials
-      // For now, we'll just log the data and return success
-      console.log('Form submission:', {
-        firstName,
-        lastName,
+      // Log the data for debugging
+      console.log('Download form submission:', {
+        brochureType,
         email,
-        phone,
-        message,
-        subject,
         timestamp: new Date().toISOString(),
       });
 
@@ -42,15 +35,11 @@ export async function POST(request) {
       );
     }
 
-    // Prepare data for Google Sheets
+    // Prepare data for Google Sheets (Brochure sheet)
     const sheetData = {
-      firstName,
-      lastName,
+      brochureType: Array.isArray(brochureType) ? brochureType.join(', ') : brochureType, // Join array if multiple selections
       email,
-      phone,
-      message: message || '',
-      subject: subject || '',
-      sheetName: 'Contact', // Specify Contact sheet
+      sheetName: 'Brochure', // Specify Brochure sheet
       timestamp: new Date().toLocaleString('vi-VN', { 
         timeZone: 'Asia/Ho_Chi_Minh',
         year: 'numeric',
@@ -61,6 +50,8 @@ export async function POST(request) {
         second: '2-digit'
       }),
     };
+
+    console.log('Sending data to Google Sheets:', JSON.stringify(sheetData, null, 2));
 
     // Send data to Google Sheets via Web App
     let response;
@@ -92,13 +83,12 @@ export async function POST(request) {
     console.log('Google Sheets response status:', response.status);
     console.log('Google Sheets response text:', responseText);
 
-    // Try to parse as JSON (same logic as test script)
+    // Try to parse as JSON
     let result;
     try {
       result = JSON.parse(responseText);
     } catch (parseError) {
       // If not JSON, check if response is OK
-      // Google Apps Script sometimes returns plain text or HTML
       if (response.ok) {
         result = { success: true };
       } else {
@@ -106,36 +96,25 @@ export async function POST(request) {
       }
     }
 
-    // Check result (same logic as test script)
+    // Check result
     if (result.success) {
-      // Success - data was saved
       return NextResponse.json(
         { 
           success: true, 
-          message: 'Cảm ơn bạn! Thông tin của bạn đã được gửi thành công.' 
+          message: 'Request sent!' 
         },
         { status: 200 }
       );
     } else {
-      // Error from Google Sheets
       throw new Error(result.error || 'Google Sheets trả về lỗi');
     }
-
-    return NextResponse.json(
-      { 
-        success: true, 
-        message: 'Cảm ơn bạn! Thông tin của bạn đã được gửi thành công.' 
-      },
-      { status: 200 }
-    );
   } catch (error) {
-    console.error('Error submitting form:', error);
+    console.error('Error submitting download form:', error);
     console.error('Error details:', {
       message: error.message,
       stack: error.stack,
     });
     
-    // Return more detailed error message
     const errorMessage = error.message || 'Có lỗi xảy ra khi gửi form. Vui lòng thử lại sau.';
     
     return NextResponse.json(
@@ -147,4 +126,3 @@ export async function POST(request) {
     );
   }
 }
-
