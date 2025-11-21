@@ -57,7 +57,7 @@
     "settings": {}
   },
   "countdown": {
-    "enabled": true,
+    "enabled": false,
     "launch_date": "2025-11-21T12:02:00",
     "force_expired": false,
     "use_config_cache": false,
