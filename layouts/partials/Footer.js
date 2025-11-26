@@ -9,8 +9,10 @@ import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 import ImageFallback from "@layouts/components/ImageFallback";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const { copyright, footer_content } = config.params;
   const { email, phone, location } = config.contact_info;
 
@@ -38,10 +40,10 @@ const Footer = () => {
               <p className="text-white mb-1 font-medium">INNOVATION ACADEMY JOINT STOCK COMPANY</p>
               <p className="text-white mb-1 font-medium">COMPANY</p> */}
 
-              <p className="text-white mt-8 mb-2 font-semibold">Address:</p>
-              <p className="text-white mb-1">No. 42, Alley 528 Bach Dang Street,</p>
-              <p className="text-white mb-1">Hong Ha Ward, Hoan Kiem District,</p>
-              <p className="text-white mb-1">Hanoi, Vietnam</p>
+              {/* <p className="text-white mt-8 mb-2 font-semibold">{t("footer.address")}</p> */}
+              <p className="text-white mb-1 mt-8">{t("footer.addressLine1")}</p>
+              <p className="text-white mb-1">{t("footer.addressLine2")}</p>
+              <p className="text-white mb-1">{t("footer.addressLine3")}</p>
 
 
 
@@ -49,37 +51,37 @@ const Footer = () => {
             <div className="animate mt-8 md:col-7 lg:col-7 lg:mt-0">
               <div className="row border-b border-white/20 py-5 justify-between">
                 <div className="animate md:col-6 lg:col-3 lg:mt-0 mb-4 lg:mb-0">
-                  <p className="text-white font-medium mb-2">Courses & Programs</p>
+                  <p className="text-white font-medium mb-2">{t("footer.coursesPrograms")}</p>
                 </div>
                 <div className="animate mt-4 md:col-6 lg:col-3 lg:mt-0 mb-4 lg:mb-0">
-                  <p className="text-white font-medium mb-2">About EMIA</p>
+                  <p className="text-white font-medium mb-2">{t("footer.aboutEmia")}</p>
                 </div>
                 <div className="animate mt-4 md:col-6 lg:col-3 lg:mt-0 mb-4 lg:mb-0">
-                  <p className="text-white font-medium mb-2">DXCON</p>
+                  <p className="text-white font-medium mb-2">{t("footer.dxcon")}</p>
                 </div>
                 <div className="animate mt-4 md:col-6 lg:col-3 lg:mt-0 mb-4 lg:mb-0">
-                  <p className="text-white font-medium mb-2">Contact us</p>
+                  <p className="text-white font-medium mb-2">{t("footer.contactUs")}</p>
                 </div>
               </div>
 
               <div className="row border-b border-white/20 py-5">
                 <div className="animate md:col-6 lg:col-4 lg:mt-0 mb-4 lg:mb-0">
-                  <p className="text-white font-medium">Facebook Fanpage</p>
+                  <p className="text-white font-medium">{t("footer.facebookFanpage")}</p>
                 </div>
                 <div className="animate mt-4 md:col-6 lg:col-3 lg:mt-0 mb-4 lg:mb-0">
-                  <p className="text-white font-medium">Linked In</p>
+                  <p className="text-white font-medium">{t("footer.linkedIn")}</p>
                 </div>
               </div>
               <div className="row border-b border-white/20 py-5 justify-between">
                 <div className="animate mt-4 md:col-6 lg:col-6 lg:mt-0 mb-6 lg:mb-0">
-                  <p className="text-white font-medium mb-2 font-weight-700">VĂN PHÒNG TẠI HÀ NỘI</p>
-                  <p className="text-white font-medium mb-2">Tòa nhà CIC, số 2 Nguyễn Thị Duệ,</p>
-                  <p className="text-white font-medium mb-2">Phường Yên Hòa, Hà Nội.</p>
+                  <p className="text-white font-medium mb-2 font-weight-700">{t("footer.officeHanoi")}</p>
+                  <p className="text-white font-medium mb-2">{t("footer.officeHanoiLine1")}</p>
+                  <p className="text-white font-medium mb-2">{t("footer.officeHanoiLine2")}</p>
                 </div>
                 <div className="animate mt-4 md:col-6 lg:col-6 lg:mt-0 mb-6 lg:mb-0">
-                <p className="text-white font-medium mb-2 font-weight-700">VĂN PHÒNG TẠI TP Hồ Chí minh</p>
-                  <p className="text-white font-medium mb-2">89 Hoàng Quốc Việt,</p>
-                  <p className="text-white font-medium mb-2">Phường Phú Nhuận, TP. Hồ Chí Minh.</p>
+                  <p className="text-white font-medium mb-2 font-weight-700">{t("footer.officeHCM")}</p>
+                  <p className="text-white font-medium mb-2">{t("footer.officeHCMLine1")}</p>
+                  <p className="text-white font-medium mb-2">{t("footer.officeHCMLine2")}</p>
                 </div>
               </div>
             </div>
@@ -93,7 +95,7 @@ const Footer = () => {
                 <button className="btn btn-back-to-top" onClick={scrollToTop}>
                   <span className="flex items-center justify-center gap-2">
                     <FeatherIcon icon="arrow-up" />
-                    <span>Back to top</span>
+                    <span>{t("footer.backToTop")}</span>
                   </span>
                 </button>
               </div>
@@ -101,11 +103,11 @@ const Footer = () => {
             <div className="animate mt-8 md:col-7 lg:col-7 lg:mt-0">
               <div className="row mt-10 items-center">
                 <div className="animate md:col-6 lg:col-6 lg:mt-0">
-                  <p className="text-white mb-2">Phone: +84 357 105 827</p>
-                  <p className="text-white">Email: contact@emia.vn</p>
+                  <p className="text-white mb-2">{t("footer.phoneNumber")}</p>
+                  <p className="text-white">{t("footer.emailAddress")}</p>
                 </div>
                 <div className="animate mt-6 md:col-6 lg:col-5 lg:mt-0 lg:text-right">
-                  <p className="text-white">© 2025 EMIA</p>
+                  <p className="text-white">{t("footer.copyright")}</p>
                 </div>
               </div>
             </div>

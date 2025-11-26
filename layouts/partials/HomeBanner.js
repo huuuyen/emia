@@ -17,6 +17,16 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
     process.env.LINK_QUIZZ ??
     "#";
   const { t } = useLanguage();
+  
+  // Function to scroll to courses section
+  const scrollToCourses = (e) => {
+    e.preventDefault();
+    const coursesSection = document.getElementById('courses');
+    if (coursesSection) {
+      coursesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+  
   useEffect(() => {
     const ctx2 = gsap.context(() => {
     });
@@ -56,7 +66,8 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
                   <div className="banner-btn button-sucess">
                     <Link
                       className="btn "
-                      href="#"
+                      href="#courses"
+                      onClick={scrollToCourses}
                     >
                      <span className="flex items-center justify-center gap-2"><span>{t("banner.button")}</span> <FeatherIcon icon="arrow-right" /></span> 
                     </Link>

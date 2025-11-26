@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Andromeda Light Nextjs",
-    "base_url": "/",
+    "title": "Emia Nextjs",
+    "base_url": "https://emia.vn",
     "favicon": "/images/favicon.png",
     "logo": "/images/logo_emia.svg",
     "logo_width": "240",
@@ -38,7 +38,7 @@
   "metadata": {
     "meta_author": "Themefisher",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Andromeda-light Nextjs Blog Template"
+    "meta_description": "Emia Nextjs Blog Template"
   },
 
   "call_to_action": {

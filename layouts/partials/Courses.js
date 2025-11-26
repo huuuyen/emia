@@ -10,6 +10,14 @@ import { translations } from "../../lib/translations";
 const Courses = ({ courses }) => {
   const { t, language } = useLanguage();
   
+  // Function to scroll to contact section
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+  
   // Helper function to get array translations
   const getArrayTranslation = (key, index) => {
     const fullKey = `courses.list.${index}.${key}`;
@@ -98,7 +106,7 @@ const Courses = ({ courses }) => {
 
             {/* Content */}
             <div className="animate lg:col-5 c-course-content">
-              <div className="c-course-title">{t(`courses.list.${index}.title`)}</div>
+              <div className="c-course-title" onClick={scrollToContact} style={{ cursor: 'pointer' }}>{t(`courses.list.${index}.title`)}</div>
               <div className="c-course-subtitle">{t(`courses.list.${index}.subtitle`)}</div>
               <div className="c-course-description">{t(`courses.list.${index}.content`)}</div>
 

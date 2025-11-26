@@ -123,26 +123,63 @@
 }
 
 .banner-quizz {
-  border: 1px solid #dfe4e7 !important;
+  background: linear-gradient(135deg, #1744f4 0%, #00cc4e 100%) !important;
+  // border: 2px solid transparent !important;
   border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(23, 68, 244, 0.4), 0 0 30px rgba(0, 204, 78, 0.3) !important;
+  padding: 12px 24px !important;
+  transition: all 0.3s ease !important;
+  animation: bannerQuizzPulse 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 30px rgba(23, 68, 244, 0.6), 0 0 40px rgba(0, 204, 78, 0.5) !important;
+    
+    &::before {
+      left: 100%;
+    }
+  }
 
   span {
-    color: #1744f4;
-    font-size: 14px;
-    font-weight: 500;
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@keyframes bannerQuizzPulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(23, 68, 244, 0.4), 0 0 30px rgba(0, 204, 78, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(23, 68, 244, 0.6), 0 0 40px rgba(0, 204, 78, 0.5);
   }
 }
 
 .how-bg {
-  background-color: #0930C9 !important;
-  color: #FFFFFF;
+  background-color: #0930c9 !important;
+  color: #ffffff;
   border-radius: 32px !important;
   padding: 0 15px;
 }
 
 .how-title {
   font-weight: 500;
-  
 }
 
 .how-font-title {
@@ -189,7 +226,7 @@
   }
 }
 
-.button-sucess>a {
+.button-sucess > a {
   background-color: #00cc4e;
   border-radius: 37px;
   color: #ffffff !important;
@@ -215,21 +252,21 @@
   line-height: 120%;
 }
 
-.c-courses-description>p {
+.c-courses-description > p {
   color: #404c5d;
   font-weight: 400;
   font-size: 20px;
   line-height: 140%;
 }
 
-.c-courses-button-download>a {
+.c-courses-button-download > a {
   background-color: #00cc4e;
   border-radius: 37px;
   color: #ffffff !important;
   font-weight: 700;
 }
 
-.c-courses-button-contact>a {
+.c-courses-button-contact > a {
   color: #1744f4 !important;
 }
 
@@ -237,8 +274,11 @@
   color: #1744f4 !important;
   font-size: 32px;
   line-height: 140%;
+  cursor: pointer;
 }
-
+.c-course-title:hover {
+  text-decoration: underline;
+}
 .c-course-subtitle {
   color: #1744f4 !important;
   font-size: 16px;
@@ -307,7 +347,6 @@ select {
   width: 100% !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
-
 }
 
 .bg_footer {
@@ -367,7 +406,7 @@ select {
   }
 }
 
-.button-back-to-top>a {
+.button-back-to-top > a {
   border: 2px solid #ffffff !important;
   border-radius: 24px !important;
   color: #ffffff !important;
@@ -534,7 +573,7 @@ select {
     overflow: visible !important;
   }
 
-  >div {
+  > div {
     @media (max-width: 768px) {
       width: 100% !important;
       height: 100% !important;
@@ -567,7 +606,7 @@ select {
     text-align: center !important;
   }
 
-  .c-courses-title>span {
+  .c-courses-title > span {
     @media (max-width: 768px) {
       font-size: 32px !important;
       line-height: 120% !important;
@@ -579,7 +618,7 @@ select {
     }
   }
 
-  .c-courses-description>p {
+  .c-courses-description > p {
     @media (max-width: 768px) {
       font-size: 16px !important;
       line-height: 140% !important;
@@ -648,7 +687,6 @@ select {
   /* Course item layout - stack on mobile */
   .c-courses-item {
     @media (max-width: 768px) {
-
       .c-course-image,
       .c-course-content {
         width: 100% !important;
@@ -723,7 +761,7 @@ select {
 }
 
 .levelemia-content {
-  background-color: #F6F8F9;
+  background-color: #f6f8f9;
   border-radius: 32px;
   padding: 56px 48px 24px 48px !important;
   text-align: center;
@@ -743,7 +781,7 @@ select {
   font-size: 16px;
   font-weight: 500;
   text-align: center;
-  color: #808C92;
+  color: #808c92;
 }
 
 .levelemia-expert-logos {
@@ -785,7 +823,7 @@ select {
 
 .icon-map,
 .icon-contact {
-  color: #1744F4;
+  color: #1744f4;
 }
 
 .customer-form {
@@ -851,7 +889,6 @@ select {
    GENERAL RESPONSIVE UTILITIES
    ============================================ */
 @media (max-width: 768px) {
-
   /* Hide on mobile if needed */
   .hide-mobile {
     display: none !important;
@@ -896,7 +933,6 @@ select {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-
   /* Tablet adjustments */
   .section {
     padding-top: 40px !important;
@@ -917,20 +953,17 @@ select {
   }
 }
 
-
-
 // customer
-.btn-back-to-top{
-  border: 2px solid #FFFFFF !important;
+.btn-back-to-top {
+  border: 2px solid #ffffff !important;
   font-weight: 700 !important;
   border-radius: 24px;
 }
-.btn-dowload{
-  background-color: #00CC4E !important;
-  color: #FFFFFF !important;
+.btn-dowload {
+  background-color: #00cc4e !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   border-radius: 37px;
-
 }
 
 /* ============================================
@@ -951,7 +984,9 @@ select {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .countdown-item:hover {
@@ -986,11 +1021,11 @@ select {
   .countdown-value {
     font-size: 2rem;
   }
-  
+
   .countdown-label {
     font-size: 0.875rem;
   }
-  
+
   .countdown-item {
     padding: 15px;
   }

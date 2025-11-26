@@ -1,5 +1,5 @@
-<h1 align=center>Andromeda Light Nextjs</h1>
-<p align=center>Andromeda Light is a SAAS template for Nextjs</p>
+<h1 align=center>Emia Nextjs</h1>
+<p align=center>Emia a template for Nextjs</p>
 <h2 align="center"> <a target="_blank" href="https://andromeda-light-nextjs.vercel.app/" rel="nofollow">👀Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fandromeda-light-nextjs.vercel.app%2F&form_factor=desktop">Page Speed (100%)🚀</a>
 </h2>
 
