@@ -44,18 +44,28 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
           <div className="row overflow-hidden rounded-2xl">
             <div className="col-12">
               <div className="row relative justify-center pb-10">
-                <div className="banner-content col-10 pb-10 pt-40 text-center">
+                <div className="banner-content col-12 pb-10 pt-40 text-center">
                   <div>
                      <Link
-                      className="btn mb-10 banner-quizz"
+                      className="btn mb-10 banner-quizz-old"
+                      href={quizLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                     <span className="flex items-center justify-center gap-2"><span>{t("banner.quizz")}</span></span>
+                    </Link>
+                  </div>
+                  {/* <div>
+                     <Link
+                      className="btn mb-10 banner-quizz-old"
                       href={quizLink}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                      <span className="flex items-center justify-center gap-2"><span>{t("banner.quizz")}</span> <FeatherIcon icon="arrow-right" /></span>
                     </Link>
-                  </div>
-                  <div className="mb-8 banner-title ">
+                  </div> */}
+                  <div className="mb-4 banner-title ">
                     {t("banner.title")}
                   </div>
                   <div className="mb-8 banner-title bold ">
@@ -65,7 +75,7 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
                  {markdownify(t("banner.subText2"), "div", "sub-banner-text mb-10")}
                   <div className="banner-btn button-sucess">
                     <Link
-                      className="btn "
+                      className="btn pl-0 pr-0 "
                       href="#courses"
                       onClick={scrollToCourses}
                     >
