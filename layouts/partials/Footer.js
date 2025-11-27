@@ -64,14 +64,14 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="row border-b border-white/20 py-5">
+              {/* <div className="row border-b border-white/20 py-5">
                 <div className="animate md:col-6 lg:col-4 lg:mt-0 mb-4 lg:mb-0">
                   <p className="text-white font-medium">{t("footer.facebookFanpage")}</p>
                 </div>
                 <div className="animate mt-4 md:col-6 lg:col-3 lg:mt-0 mb-4 lg:mb-0">
                   <p className="text-white font-medium">{t("footer.linkedIn")}</p>
                 </div>
-              </div>
+              </div> */}
               <div className="row border-b border-white/20 py-5 justify-between">
                 <div className="animate mt-4 md:col-6 lg:col-6 lg:mt-0 mb-6 lg:mb-0">
                   <p className="text-white font-medium mb-2 font-weight-700">{t("footer.officeHanoi")}</p>

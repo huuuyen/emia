@@ -6,9 +6,12 @@ import Link from "next/link";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { translations } from "../../lib/translations";
+import DownloadModal from "@layouts/components/DownloadModal";
+import { useState } from "react";
 
 const Courses = ({ courses }) => {
   const { t, language } = useLanguage();
+  const [showDownloadModal, setShowDownloadModal] = useState(false);
   
   // Function to scroll to contact section
   const scrollToContact = () => {
@@ -16,6 +19,12 @@ const Courses = ({ courses }) => {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  };
+
+  // Handle Download button click - open modal
+  const handleDownloadClick = (e) => {
+    e.preventDefault();
+    setShowDownloadModal(true);
   };
   
   // Helper function to get array translations
@@ -45,8 +54,10 @@ const Courses = ({ courses }) => {
     }
   };
   return (
-    <section className="section c-courses-section">
-      <div className="container c-courses-container">
+    <>
+      <DownloadModal isOpen={showDownloadModal} onClose={() => setShowDownloadModal(false)} />
+      <section className="section c-courses-section">
+        <div className="container c-courses-container">
         {/* Header */}
         <div className="row justify-center c-courses-header">
           <div className="animate lg:col-12 c-courses-title">
@@ -54,12 +65,12 @@ const Courses = ({ courses }) => {
             <p>{t("courses.description")}</p>
             <div className="row mt-5 d-flex align-items-center c-courses-buttons">
               <div className="col-auto c-courses-button-download">
-                <Link className="btn " href={courses.button.link}>
-                <p className="flex items-center justify-center gap-2"><p>{t("courses.button")}</p> <FeatherIcon icon="arrow-down" /></p>
-                </Link>
+                <a className="btn " href="#" onClick={handleDownloadClick}>
+                <p className="flex items-center justify-center gap-2" ><p>{t("courses.button")}</p> <FeatherIcon icon="arrow-down" /></p>
+                </a>
               </div>
               <div className="col-auto c-courses-button-contact">
-                <Link href={courses.contact.link}>
+                <Link href="#" onClick={handleDownloadClick}>
                 <p className="flex items-center justify-center gap-2"><p>{t("courses.contact")}</p> <FeatherIcon icon="arrow-right" /></p>
                 </Link>
               </div>
@@ -141,6 +152,7 @@ const Courses = ({ courses }) => {
         ))}
       </div>
     </section>
+    </>
   );
 };
 
