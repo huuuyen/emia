@@ -47,9 +47,10 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
                 <div className="banner-content col-12 pb-10 pt-40 text-center">
                   <div>
                      <Link
+                      onClick={scrollToCourses}
                       className="btn mb-10 banner-quizz-old"
-                      href={quizLink}
-                      target="_blank"
+                      // href={quizLink}
+                      href="#"
                       rel="noopener noreferrer"
                     >
                      <span className="flex items-center justify-center gap-2"><span>{t("banner.quizz")}</span></span>
@@ -75,9 +76,10 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
                  {markdownify(t("banner.subText2"), "div", "sub-banner-text mb-10")}
                   <div className="banner-btn button-sucess">
                     <Link
-                      className="btn pl-0 pr-0 "
-                      href="#courses"
-                      onClick={scrollToCourses}
+                      className="btn "
+                      href={quizLink}
+                      target="_blank"
+
                     >
                      <span className="flex items-center justify-center gap-2"><span>{t("banner.button")}</span> <FeatherIcon icon="arrow-right" /></span> 
                     </Link>
