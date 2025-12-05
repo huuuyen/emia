@@ -52,9 +52,11 @@ const SeoMeta = ({
         content={plainify(description ? description : meta_description)}
       />
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content={config.site.title} />
+      <meta property="og:locale" content="vi_VN" />
       <meta
         property="og:url"
-        content={`${base_url}/${pathname.replace("/", "")}`}
+        content={pathname === "/" ? base_url : `${base_url}${pathname}`}
       />
 
       {/* twitter-title */}

@@ -44,7 +44,10 @@ const Home = async () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <SeoMeta title="Home" />
+        <SeoMeta 
+          meta_title="Emia - Experience Management Institute of Asia"
+          description="EMIA brings global expertise and local insight together to shape the next generation of experience leaders in Vietnam. Master customer experience frameworks, tools, and strategies with world-class training programs."
+        />
         <section id="home">
           <HomeBanner banner={banner} brands={brands} />
         </section>

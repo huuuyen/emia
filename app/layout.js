@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
   const sf = theme.fonts.font_family.secondary;
 
   return (
-    <html suppressHydrationWarning={true} lang="en">
+    <html suppressHydrationWarning={true} lang="vi">
       <head>
         {/* responsive meta */}
         <meta
@@ -46,7 +46,9 @@ export default function RootLayout({ children }) {
         />
 
         {/* favicon */}
-        <link rel="shortcut icon" href={config.site.favicon} />
+        <link rel="icon" type="image/png" href={config.site.favicon} />
+        <link rel="shortcut icon" type="image/png" href={config.site.favicon} />
+        <link rel="apple-touch-icon" href={config.site.favicon} />
         {/* theme meta */}
         <meta name="theme-name" content="andromeda-light-nextjs" />
 
@@ -63,6 +65,14 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
 
+        {/* SEO meta */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="keywords" content="Emia, Experience Management, Customer Experience, CX Training, Vietnam, XM Practitioner, CX Foundation, Qualtrics, Experience Management Institute" />
+        <meta name="geo.region" content="VN" />
+        <meta name="geo.placename" content="Vietnam" />
+        <meta name="language" content="Vietnamese" />
+        
         {/* theme meta */}
         <meta name="theme-name" content="andromeda-light-nextjs" />
         <meta name="msapplication-TileColor" content="#000000" />

@@ -14,7 +14,7 @@ export const useLanguage = () => {
 };
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState("en"); // Default: English
+  const [language, setLanguage] = useState("vi"); // Default: Vietnamese
 
   useEffect(() => {
     // Load language from localStorage on mount
@@ -24,9 +24,9 @@ export const LanguageProvider = ({ children }) => {
         setLanguage(savedLanguage);
         document.documentElement.lang = savedLanguage;
       } else {
-        // Default to English if no saved language
-        setLanguage("en");
-        document.documentElement.lang = "en";
+        // Default to Vietnamese if no saved language
+        setLanguage("vi");
+        document.documentElement.lang = "vi";
       }
     }
   }, []);

@@ -6,12 +6,12 @@ import Link from "next/link";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 const expertLogos = [
-  "/images/trained/01.png",
-  "/images/trained/02.png",
-  "/images/trained/03.png",
-  "/images/trained/04.png",
-  "/images/trained/05.png",
-  "/images/trained/06.png",
+  "/images/trained/01.svg",
+  "/images/trained/02.svg",
+  "/images/trained/03.svg",
+  "/images/trained/04.svg",
+  "/images/trained/05.svg",
+  "/images/trained/06.svg",
 ];
 
 const LevelEMIA = ({ levelemia }) => {
