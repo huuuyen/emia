@@ -233,5 +233,5 @@ levelemia:
   right:
     label: Have mindset and practice with Primary & Advanced toolkits.
     description: Master both essential and advanced tools to design, measure, and improve experiences, from pen-and-paper methods to AI and analytics platforms.
-    image: /images/lv_right.png
+    image: /images/lv_right01.png
 ---
