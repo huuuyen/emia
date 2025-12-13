@@ -30,7 +30,7 @@ const Footer = () => {
             <div className="animate md:col-5 lg:col-5">
               <ImageFallback
                 className="banner-img"
-                src="/images/footer/logo_emia.png"
+                src="/images/footer/logo_emia.svg"
                 width={184}
                 height={59}
                 sizes="100vw"

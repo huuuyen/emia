@@ -204,6 +204,9 @@
 
 .sub-banner-text {
   font-size: 24px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 }
 
 .recipe {
@@ -450,7 +453,7 @@ select {
    ============================================ */
 .banner-title {
   @media (max-width: 768px) {
-    font-size: 32px !important;
+    font-size: 30px !important;
     line-height: 1.2 !important;
   }
 
