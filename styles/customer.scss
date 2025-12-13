@@ -454,7 +454,7 @@ select {
 .banner-title {
   @media (max-width: 768px) {
     font-size: 30px !important;
-    line-height: 1.2 !important;
+    // line-height: 1.2 !important;
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
